@@ -1,0 +1,29 @@
+.divCrsHotelGrupo{
+	float:left;
+	margin-left:2px;
+	margin-top:2px;
+	border: 1px solid rgb(49, 115, 255); 
+	padding: 0px;
+	background-color: White;
+	font-family: verdana;
+	font-size: 10px;
+}
+
+.divCrsHotel{
+	width:200px; 
+	height:50px;
+}
+
+.divCrsHotel ul{
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	width: 100%;
+}
+.divCrsHotel ul li{
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	width: 100%;
+	text-align: left;
+}

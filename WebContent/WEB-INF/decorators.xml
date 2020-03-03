@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<decorators defaultdir="/decorators">
+
+	<excludes>
+		<pattern>/index.*</pattern>
+		<pattern>/start.jsp</pattern>
+		<pattern>/pages/mainFrame.jsp</pattern>
+		<pattern>/pages/mainApp.jsp</pattern>
+		<pattern>/pages/login.jsp</pattern>
+		<pattern>/login!*</pattern>
+		<pattern>/exportar*</pattern>
+		<pattern>/gerarBoleto*</pattern>
+		<pattern>/app/ajax*</pattern>
+		<pattern>/css/*</pattern>
+		<pattern>/js/*</pattern>
+		<pattern>/imagens/*</pattern>
+		<pattern>**/include/*</pattern>
+		<pattern>**/includes/*</pattern>
+		<pattern>**/include!*</pattern>
+		<pattern>**/include*</pattern>
+		<pattern>/pages/certificadoAlfa.jsp*</pattern>
+		<pattern>/pages/certificadoApoliceAlfa.jsp</pattern>
+		<pattern>/certificado/alfa/*</pattern>
+		<pattern>**/app/lerTelefonia!*</pattern>
+		
+
+	</excludes>
+
+
+	<decorator name="main" page="main.jsp">
+		<pattern>/*</pattern>
+	</decorator>
+
+</decorators>

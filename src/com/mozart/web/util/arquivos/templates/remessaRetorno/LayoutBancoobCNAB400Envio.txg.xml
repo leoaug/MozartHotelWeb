@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<txg:Texgit xmlns:txg="http://jrimum.org/texgit"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://jrimum.org/texgit http://jrimum.org/texgit/chrome/site/TexgitSchema.xsd"
+	version="1.0-academic">
+
+
+
+	<FlatFile>
+		<layout>
+			<name>Arquivo-Remessa_BancoobCNAB400</name>
+			<version>Version 08, Published: 2009/09/30</version>
+			<description>
+				Layout para Cobrança.
+
+				Arquivo texto - padrão CNAB
+				Meio de
+				Registro Transmissão de Dados
+				Descrição de Registro - Tamanho 400
+				Bytes
+				Organização Sequencial
+
+				ARQUIVO
+				FORMATO CNAB REMESSA, REGISTROS:
+
+				0
+				- Header Label
+				1 - Cobrança - Transação
+				2 - Mensagem (opcional)
+				3 -
+				Rateio de Crédito (opcional)
+				7 – Sacador Avalista (opcional)
+				9 -
+				Trailler (Papel de finalizador de lote)
+			</description>
+		</layout>
+		<GroupOfRecords>
+			<Record name="Header" description="Protocolo de comunicação">
+				<GroupOfFields>
+					<IdType name="IDReg" value="0" length="1" position="1" />
+					<Field name="IdentificacaoRemessa" value="1" length="1" />
+					<Field name="LiteralRemessa" value="REMESSA" length="7" />
+					<Field name="CodigoDeServico" value="01" length="2" />
+					<Field name="LiteralServico" value="COBRANCA" length="15" />
+					<Field name="CodigoDaEmpresa" length="20" type="STRING"
+						padding="ZERO_LEFT" />
+					<Field name="NomeDaEmpresa" length="30" />
+					<Field name="CodigoCompensacao" value="237" length="3" />
+					<Field name="NomeBanco" value="BANCOOB" length="15" />
+					<Field name="DataGravacaoArquivo" length="6" type="DATE"
+						format="DATE_DDMMYY" />
+					<Field name="Filler1" length="8" />
+					<Field name="IdentificacaoSistema" value="MX" length="2" />
+					<Field name="NumeroSequencialRemessa" length="7" type="INTEGER"
+						padding="ZERO_LEFT" />
+					<Field name="Filler2" length="277" />
+					<Field name="NumeroSequencialRegistro" type="INTEGER" length="6"
+						padding="ZERO_LEFT" />
+				</GroupOfFields>
+			</Record>
+			<Record name="TransacaoTitulo" repeatable="true">
+				<GroupOfFields>
+					<IdType name="IDReg" value="1" length="1" position="1" />
+					<Field name="AgenciaDebito" length="5" padding="ZERO_LEFT" />
+					<Field name="DigitoAgenciaDebito" length="1" padding="ZERO_LEFT" />
+					<Field name="RazaoContaCorrente" length="5" padding="ZERO_LEFT" />
+					<Field name="ContaCorrente" length="7" padding="ZERO_LEFT" />
+					<Field name="DigitoContaCorrente" length="1" padding="ZERO_LEFT" />
+					<Field name="Zero" length="1" value="0" />
+					<Field name="Carteira" length="3" padding="ZERO_LEFT" />
+					<Field name="Agencia" length="5" padding="ZERO_LEFT" />
+					<Field name="Conta" length="7" padding="ZERO_LEFT" />
+					<Field name="DacConta" length="1" padding="ZERO_LEFT" />
+					<Field name="NumeroControleDoParticipante" length="25" />
+					<Field name="CodigoBancoDebito" length="3" value="237" />
+					<Field name="CampoDeMulta" length="1" value="0" />
+					<Field name="PercentualDeMulta" length="4" value="0000"
+						padding="ZERO_LEFT" />
+					<Field name="IdentificacaoTituloBanco" length="11" padding="ZERO_LEFT" />
+					<Field name="DigitoAutoConferenciaNumeroBancario" length="1"
+						blankAccepted="true" />
+					<Field name="DescontoBonificacaoPorDia" length="10" padding="ZERO_LEFT" />
+					<Field name="CondicaoEmissaoPapeleteCobranca" length="1"
+						value="2" />
+					<Field name="EmiteParaDebitoAutomatico" length="1" value="0" />
+					<Field name="IdentificacaoOperacaoBanco" length="10"
+						blankAccepted="true" />
+					<Field name="IndicadorRateioCredito" length="1"
+						blankAccepted="true" />
+					<Field name="EnderecamentoAvisoDebitoAutomaticoContaCorrente"
+						length="1" blankAccepted="true" />
+					<Field name="Brancos1" length="2" blankAccepted="true" />
+					<Field name="IdentificacaoOcorrencia" length="2" type="INTEGER"
+						value="0" padding="ZERO_LEFT" />
+					<Field name="NumeroDoDocumento" length="10" />
+					<Field name="Vencimento" length="6" type="DATE" format="DATE_DDMMYY"
+						padding="ZERO_LEFT" />
+					<Field name="Valor" type="BIGDECIMAL" length="13" value="0"
+						format="DECIMAL_DD" padding="ZERO_LEFT" />
+					<Field name="CodigoCompensacaoBancoRecebedor" value="0"
+						length="3" padding="ZERO_LEFT" />
+					<Field name="PrefixoDaAgenciaRecebedora" type="INTEGER"
+						value="0" length="5" padding="ZERO_LEFT" />
+					<Field name="EspecieDeTitulo" length="2" value="12" />
+					<Field name="Identificacao" length="1" value="N" />
+					<Field name="DataEmissaoTitulo" length="6" type="DATE"
+						format="DATE_DDMMYY" padding="ZERO_LEFT" />
+					<Field name="Instrucao1" length="2" />
+					<Field name="Instrucao2" length="2" />
+					<Field name="ValorCobradoPorDiaDeAtraso" type="BIGDECIMAL"
+						length="13" value="0" format="DECIMAL_DD" padding="ZERO_LEFT" />
+					<Field name="DataLimiteConscssaoDesconto" length="6" type="DATE"
+						format="DATE_DDMMYY" padding="ZERO_LEFT" blankAccepted="true" />
+					<Field name="ValorDesconto" type="BIGDECIMAL" length="13"
+						value="0" format="DECIMAL_DD" padding="ZERO_LEFT" />
+					<Field name="ValorIOF" type="BIGDECIMAL" length="13" value="0"
+						format="DECIMAL_DD" padding="ZERO_LEFT" />
+					<Field name="ValorAbatimento" type="BIGDECIMAL" length="13"
+						value="0" format="DECIMAL_DD" padding="ZERO_LEFT" />
+					<Field name="IdentificadorTipoPagador" length="2" padding="ZERO_LEFT" />
+					<Field name="NumeroInscricaoPagador" length="14" padding="ZERO_LEFT" />
+					<Field name="NomePagador" length="40" />
+					<Field name="EnderecoPagador" length="40" />
+					<Field name="Mensagem1" length="12" blankAccepted="true" />
+					<Field name="CEP" length="8" />
+					<Field name="Mensagem2" length="60" blankAccepted="true" />
+					<Field name="NumeroSequencialRegistro" type="INTEGER" length="6"
+						padding="ZERO_LEFT" />
+				</GroupOfFields>
+
+			</Record>
+			<Record name="Trailler">
+				<GroupOfFields>
+					<IdType name="IDReg" value="9" length="1" position="1" />
+					<Field name="Filler" length="393" />
+					<Field name="NumeroSequencialRegistro" type="INTEGER" length="6"
+						padding="ZERO_LEFT" />
+				</GroupOfFields>
+			</Record>
+		</GroupOfRecords>
+	</FlatFile>
+
+</txg:Texgit>

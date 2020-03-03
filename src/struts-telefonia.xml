@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+ <package name="telefonia" extends="struts-default" namespace="/app/telefonia" >
+	
+		<!-- Dados da tarifacao -->
+	    <action name="manterTarifacaoConfig" class="com.mozart.web.actions.telefonia.TarifacaoConfigAction" >
+                 <result name="sucesso">/pages/modulo/telefonia/central/manterTarifacaoConfig.jsp</result>
+                 <result name="pesquisa" type="redirectAction">
+                 	<param name="namespace">/app</param>
+                 	<param name="actionName">main!preparar.action</param>
+                 </result>
+	    </action>
+
+
+
+		<!-- Dados do ramal -->
+	    <action name="manterRamal" class="com.mozart.web.actions.telefonia.RamalAction" >
+                 <result name="sucesso">/pages/modulo/telefonia/ramal/manter.jsp</result>
+	    </action>
+	    
+	    <action name="pesquisarRamal" class="com.mozart.web.actions.telefonia.RamalAction" >
+                 <result name="sucesso">/pages/modulo/telefonia/ramal/pesquisar.jsp</result>
+	    </action>
+
+    <action name="excluirRamal" class="com.mozart.web.actions.telefonia.RamalAction" >
+                 <result name="sucesso" type="redirectAction">/app/pesquisarRamal!prepararPesquisa.action</result>
+	    </action>
+
+		<!--  Dados Discrepancia -->
+		
+		<action name="manterDiscrepancia" class="com.mozart.web.actions.telefonia.DiscrepanciaAction" >
+                 <result name="sucesso">/pages/modulo/telefonia/discrepancia/manter.jsp</result>
+	    </action>
+	    
+	    <action name="pesquisarDiscrepancia" class="com.mozart.web.actions.telefonia.DiscrepanciaAction" >
+                 <result name="sucesso">/pages/modulo/telefonia/discrepancia/pesquisar.jsp</result>
+	    </action>
+
+	
+
+
+	    
+    </package>
+</struts>

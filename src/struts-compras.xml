@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	 	<package name="compras" extends="struts-default" namespace="/app/compras" >
+	 	<!-- Dados Fornecedor-->
+	    
+	    <action name="pesquisarFornecedor" class="com.mozart.web.actions.compras.FornecedorAction" >
+                 <result name="sucesso">/pages/modulo/compras/fornecedor/pesquisar.jsp</result>
+                 <result name="erro">/pages/modulo/compras/fornecedor/pesquisar.jsp</result>
+	    </action>
+	 	 <action name="manterFornecedor" class="com.mozart.web.actions.compras.FornecedorAction" >
+                 <result name="sucesso">/pages/modulo/compras/fornecedor/manter.jsp</result>
+                 <result name="erro">/pages/modulo/compras/fornecedor/pesquisar.jsp</result>
+	    </action>
+	    
+	    <!-- Dados Grupo Fornecedor-->
+	    
+	    <action name="pesquisarFornecedorGrupo" class="com.mozart.web.actions.compras.FornecedorGrupoAction" >
+                 <result name="sucesso">/pages/modulo/compras/fornecedorGrupo/pesquisar.jsp</result>
+	    </action>
+	 	 <action name="manterFornecedorGrupo" class="com.mozart.web.actions.compras.FornecedorGrupoAction" >
+                 <result name="sucesso">/pages/modulo/compras/fornecedorGrupo/manter.jsp</result>
+                 <result name="erro">/pages/modulo/compras/fornecedorGrupo/pesquisar.jsp</result>
+	    </action>
+
+
+		<!-- Dados Estoque Item-->
+	    
+	    <action name="pesquisarCadastroItens" class="com.mozart.web.actions.compras.EstoqueItemAction" >
+                 <result name="sucesso">/pages/modulo/compras/estoqueItem/pesquisar.jsp</result>
+	    </action>
+	    <action name="pesquisarEstoqueItem" class="com.mozart.web.actions.compras.EstoqueItemAction" >
+                 <result name="sucesso">/pages/modulo/compras/estoqueItem/pesquisar.jsp</result>
+                 <result name="erro">/pages/modulo/compras/estoqueItem/pesquisar.jsp</result>
+	    </action>
+	 	 <action name="manterEstoqueItem" class="com.mozart.web.actions.compras.EstoqueItemAction" >
+                 <result name="sucesso">/pages/modulo/compras/estoqueItem/manter.jsp</result>
+                 <result name="erro">/pages/modulo/compras/estoqueItem/pesquisar.jsp</result>
+	    </action>
+	    	    
+	 	
+	 	
+	 	
+	 	</package>
+
+
+
+
+</struts>

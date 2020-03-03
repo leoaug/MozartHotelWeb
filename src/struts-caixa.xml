@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<package name="caixa" extends="struts-default" namespace="/app/caixa">
+		<action name="caixaGeral" class="com.mozart.web.actions.CaixaGeralAction">
+			<result name="sucesso">/pages/modulo/checkout/manterCaixa.jsp
+			</result>
+		</action>
+		<action name="checkout" class="com.mozart.web.actions.CaixaGeralAction">
+			<result name="sucesso">/pages/modulo/checkout/manterCheckout.jsp
+			</result>
+			<result name="pesquisa" type="redirectAction">/caixaGeral!pesquisar.action
+			</result>
+		</action>
+		
+		<!-- Diárias automáticas -->
+		<action name="diariaAutomatica" class="com.mozart.web.actions.caixa.DiariaAutomaticaAction">
+			<result name="sucesso">/pages/modulo/checkout/diariaAutomatica/manter.jsp</result>
+		</action>
+		
+		<!-- Diárias automáticas -->
+		<action name="transferenciaDespesa" class="com.mozart.web.actions.caixa.TransferenciaDespesaAction">
+			<result name="sucesso">/pages/modulo/checkout/transferenciaDespesa/manter.jsp</result>
+		</action>
+
+
+		<!-- Caixa -->
+		<action name="pesquisarCaixa" class="com.mozart.web.actions.caixa.CaixaAction">
+			<result name="sucesso">/pages/modulo/caixa/relatorio.jsp</result>
+		</action>
+		
+		<!-- Objetos emprestados -->
+		<action name="pesquisarObjetoEmprestado" class="com.mozart.web.actions.caixa.ObjetoEmprestadoAction">
+			<result name="sucesso">/pages/modulo/checkout/objetoEmprestado/pesquisar.jsp</result>
+		</action>
+
+		<!-- Cupom fiscal -->
+		<action name="manterCupomFiscal" class="com.mozart.web.actions.caixa.CupomFiscalAction">
+			<result name="sucesso">/pages/modulo/checkout/cupomFiscal/manter.jsp</result>
+		</action>
+		
+		<!-- Mini PDV -->
+		<action name="pesquisarMiniPDV" class="com.mozart.web.actions.caixa.MiniPDVAction">
+			<result name="sucesso">/pages/modulo/checkout/miniPDV/pesquisar.jsp</result>
+		</action>
+		
+		<action name="manterMiniPDV" class="com.mozart.web.actions.caixa.MiniPDVAction">
+			<result name="sucesso">/pages/modulo/checkout/miniPDV/manter.jsp</result>
+		</action>
+		
+		<!-- Transacoes Web -->
+		<action name="pesquisarTransacoesWeb" class="com.mozart.web.actions.caixa.TransacoesWebAction">
+			<result name="sucesso">/pages/modulo/checkout/transacoesWeb/pesquisar.jsp</result>
+		</action>
+		
+	</package>
+
+</struts>

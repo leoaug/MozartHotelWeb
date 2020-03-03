@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<constant name="struts.codebehind.pathPrefix" value="/" />
+	<constant name="struts.i18n.reload" value="true" />
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.configuration.xml.reload" value="false" />
+	<constant name="struts.custom.i18n.resources" value="MessageResources" />
+	<constant name="struts.serve.static" value="true" />
+	<constant name="struts.serve.static.browserCache" value="false" />
+	<constant name="struts.action.extension" value="action" />
+	<constant name="struts.i18n.encoding" value="ISO-8859-1" />
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+	<constant name="struts.multipart.maxSize" value="10485760" />
+
+	<include file="struts-login.xml"></include>
+	<include file="struts-res.xml"></include>
+	<include file="struts-admin.xml"></include>
+	<include file="struts-usuario.xml"></include>
+	<include file="struts-checkin.xml"></include>
+	<include file="struts-contacorrente.xml"></include>
+	<include file="struts-alfa.xml"></include>
+	<include file="struts-apiGeral.xml"></include>
+	<include file="struts-caixa.xml"></include>
+	<include file="struts-compras.xml"></include>
+	<include file="struts-certificado.xml"></include>
+	<include file="struts-operacional.xml"></include>
+	<include file="struts-empresa.xml"></include>
+	<include file="struts-comercial.xml"></include>
+	<include file="struts-recepcao.xml"></include>
+	<include file="struts-auditoria.xml"></include>
+	<include file="struts-rede.xml"></include>	
+	<include file="struts-crs.xml"></include>
+	<include file="struts-marketing.xml"></include>
+	<include file="struts-telefonia.xml"></include>
+	<include file="struts-sistema.xml"></include>
+	<include file="struts-controladoria.xml"></include>
+	<include file="struts-financeiro.xml"></include>
+	<include file="struts-custo.xml"></include>
+	<include file="struts-contabilidade.xml"></include>
+	<include file="struts-mudanca.xml"></include>
+	<include file="struts-bloqueio.xml"></include>
+	<include file="struts-estoque.xml"></include>
+	<include file="struts-pdv.xml"></include>
+	<include file="struts-contrato.xml"></include>
+	<include file="struts-exportar.xml"></include>
+	<include file="struts-representante.xml"></include>
+	<include file="struts-vendedor.xml"></include>
+	
+	<package name="geral" extends="struts-default" namespace="/app">
+		<action name="main" class="com.mozart.web.actions.MainAction">
+			<result name="sucesso">/pages/principal.jsp</result>
+		</action>
+
+		<action name="selecionar" class="com.mozart.web.actions.MainAction">
+			<result name="sucesso">/pages/principal.jsp</result>
+		</action>
+
+		<action name="lerTelefonia" class="com.mozart.web.actions.MainAction">
+			<result name="sucesso">/pages/modulo/includes/lancamentoTelefonia.jsp</result>
+		</action>
+		
+		<action name="manterConfiguracaoTributaria" class="com.mozart.web.actions.sistema.ConfiguracaoHotelAction" >
+                 <result name="sucesso">/pages/modulo/sistema/hotel/configuracaoTributaria.jsp</result>
+                 <result name="erro">/pages/modulo/sistema/hotel/configuracaoTributaria.jsp</result>
+	    </action>
+	</package>
+</struts>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<package name="pdv" extends="struts-default" namespace="/app/pdv">
+
+		<!-- Dados do credito empresa -->
+		<action name="movimentacaoPontoVenda" class="com.mozart.web.actions.pdv.PDVMovimentacaoAction">
+			<result name="sucesso">/pages/modulo/pdv/pesquisar.jsp</result>
+		</action>
+		
+		<action name="manterMovimentacaoPontoVenda" class="com.mozart.web.actions.pdv.PDVMovimentacaoAction" >
+			<result name="sucesso">/pages/modulo/pdv/manter.jsp</result>
+			<result name="erro">/pages/modulo/pdv/pesquisar.jsp</result>
+	    </action>
+		
+		<action name="include" class="com.mozart.web.actions.pdv.PDVMovimentacaoAction" >
+			<result name="sucesso" >/pages/modulo/pdv/include/manterMovimentacao.jsp</result>
+			<result name="sucessoPgto">/pages/modulo/pdv/include/manterPagamento.jsp</result>
+		</action>
+
+
+	</package>
+</struts>

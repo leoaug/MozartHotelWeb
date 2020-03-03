@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+ <package name="controladoria" extends="struts-default" namespace="/app/controladoria" >
+	
+	
+	<!-- Dados Cotação da Moeda-->
+	    
+	    <action name="pesquisarValorDolar" class="com.mozart.web.actions.controladoria.ValorDolarAction" >
+                 <result name="sucesso">/pages/modulo/controladoria/valorDolar/pesquisar.jsp</result>
+	    </action>
+        <action name="manterValorDolar" class="com.mozart.web.actions.controladoria.ValorDolarAction" >
+                 <result name="sucesso">/pages/modulo/controladoria/valorDolar/manter.jsp</result>
+                 <result name="erro">/pages/modulo/controladoria/valorDolar/pesquisar.jsp</result>
+	    </action>
+	    
+	    <!-- Dados Valor do Café-->
+	    
+	    <action name="pesquisarValorCafe" class="com.mozart.web.actions.controladoria.ValorCafeAction" >
+                 <result name="sucesso">/pages/modulo/controladoria/valorCafe/pesquisar.jsp</result>
+	    </action>
+        <action name="manterValorCafe" class="com.mozart.web.actions.controladoria.ValorCafeAction" >
+                 <result name="sucesso">/pages/modulo/controladoria/valorCafe/manter.jsp</result>
+                 <result name="erro">/pages/modulo/controladoria/valorCafe/pesquisar.jsp</result>
+	    </action>
+	    
+		
+		<!-- Dados Conta Corrente-->
+	    
+	    <action name="pesquisarContaCorrente" class="com.mozart.web.actions.controladoria.ContaCorrenteAction" >
+                 <result name="sucesso">/pages/modulo/controladoria/contaCorrente/pesquisar.jsp</result>
+	    </action>
+        <action name="manterContaCorrente" class="com.mozart.web.actions.controladoria.ContaCorrenteAction" >
+                 <result name="sucesso">/pages/modulo/controladoria/contaCorrente/manter.jsp</result>
+                 <result name="erro">/pages/modulo/controladoria/contaCorrente/pesquisar.jsp</result>
+	    </action>
+	    
+	    <!-- Dados Log Usuario-->
+	    
+	    <action name="pesquisarLogUsuario" class="com.mozart.web.actions.controladoria.LogUsuarioAction" >
+                 <result name="sucesso">/pages/modulo/controladoria/logUsuario/pesquisar.jsp</result>
+	    </action>
+
+	    <!-- Dados Tipo Lançamento-->
+	    <action name="pesquisarTipoLancamento" class="com.mozart.web.actions.controladoria.TipoLancamentoAction" method="prepararPesquisa" >
+                 <result name="sucesso">/pages/modulo/controladoria/tipoLancamento/pesquisar.jsp</result>
+	    </action>
+	    <action name="manterTipoLancamento" class="com.mozart.web.actions.controladoria.TipoLancamentoAction"  >
+                 <result name="sucesso">/pages/modulo/controladoria/tipoLancamento/manter.jsp</result>
+	    </action>
+        
+	 </package>
+ </struts>

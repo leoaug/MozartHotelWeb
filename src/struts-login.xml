@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<package name="login" extends="struts-default">
+
+		<action name="login" class="com.mozart.web.actions.LoginAction">
+			<result name="logout" type="redirectAction">login!prepararLogin.action</result>
+			<result name="sessionExpired">/index.jsp?ident=true</result>
+			<result name="sucesso" type="redirectAction">app/main!preparar.action</result>
+			<result name="prepara">/pages/login.jsp</result>
+			<result name="naoAutorizado">/pages/hotelNaoAutorizado.jsp</result>
+			
+			<result name="sucessoCRS" type="redirectAction">
+             <param name="actionName">pesquisarCRS</param>
+             <param name="namespace">/app/crs</param>
+         	</result>
+         	
+		</action>
+
+		<action name="versao" class="">
+			<result>/pages/versao.jsp</result>
+		</action>
+	</package>
+</struts>

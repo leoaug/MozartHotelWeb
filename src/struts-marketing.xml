@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+ <package name="marketing" extends="struts-default" namespace="/app/marketing" >
+	
+		<!-- por empresa -->
+	    <action name="porEmpresa" class="com.mozart.web.actions.marketing.MarketingAction" >
+                 <result name="sucesso">/pages/modulo/marketing/porEmpresa/pesquisar.jsp</result>
+	    </action>
+        
+	    <action name="porEmpresaRelatorio" class="com.mozart.web.actions.marketing.MarketingAction" >
+                 <result name="sucesso">/pages/modulo/marketing/porEmpresa/relatorio.jsp</result>
+	    </action>
+	    
+	    <!-- por outros -->
+	    
+	    <action name="porOutrosRelatorio" class="com.mozart.web.actions.marketing.MarketingAction" method="prepararOutros" >
+                 <result name="sucesso">/pages/modulo/marketing/outros/relatorio.jsp</result>
+	    </action>
+        
+	    
+	    
+</package>
+</struts>

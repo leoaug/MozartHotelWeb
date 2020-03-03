@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+ <package name="sistema" extends="struts-default" namespace="/app/sistema" >
+	
+		<!-- Dados Cidade-->
+	    
+	    <action name="pesquisarCidade" class="com.mozart.web.actions.sistema.CidadeAction" >
+                 <result name="sucesso">/pages/modulo/sistema/cidade/pesquisar.jsp</result>
+	    </action>
+        <action name="manterCidade" class="com.mozart.web.actions.sistema.CidadeAction" >
+                 <result name="sucesso">/pages/modulo/sistema/cidade/manter.jsp</result>
+                 <result name="erro">/pages/modulo/sistema/cidade/pesquisar.jsp</result>
+	    </action>
+	    
+	    
+	    <!-- Dados Banco-->
+	    <action name="pesquisarBanco" class="com.mozart.web.actions.sistema.BancoAction" >
+                 <result name="sucesso">/pages/modulo/sistema/banco/pesquisar.jsp</result>
+	    </action>
+        <action name="manterBanco" class="com.mozart.web.actions.sistema.BancoAction" >
+                 <result name="sucesso">/pages/modulo/sistema/banco/manter.jsp</result>
+                 <result name="erro">/pages/modulo/sistema/banco/pesquisar.jsp</result>
+	    </action>
+
+	    <!-- Dados mensagem-->
+	    <action name="pesquisarMensagem" class="com.mozart.web.actions.sistema.MensagemAction" >
+                 <result name="sucesso">/pages/modulo/sistema/mensagem/pesquisar.jsp</result>
+	    </action>
+        <action name="manterMensagem" class="com.mozart.web.actions.sistema.MensagemAction" >
+                 <result name="sucesso">/pages/modulo/sistema/mensagem/manter.jsp</result>
+                 <result name="erro">/pages/modulo/sistema/mensagem/pesquisar.jsp</result>
+	    </action>
+	    
+	    <!-- Dados Mensagem Usuário -->
+	    <action name="pesquisarMensagemWebUsuario" class="com.mozart.web.actions.sistema.MensagemWebUsuarioAction" >
+                 <result name="sucesso">/pages/modulo/sistema/mensagemWebUsuario/pesquisar.jsp</result>
+	    </action>
+	    
+	    <!-- dados Empresa -->
+	    <action name="pesquisarEmpresa" class="com.mozart.web.actions.sistema.EmpresaAction" >
+                 <result name="sucesso">/pages/modulo/sistema/empresa/pesquisar.jsp</result>
+	    </action>
+        <action name="manterEmpresa" class="com.mozart.web.actions.sistema.EmpresaAction" >
+                 <result name="sucesso">/pages/modulo/sistema/empresa/manter.jsp</result>
+                 <result name="erro">/pages/modulo/sistema/empresa/pesquisar.jsp</result>
+	    </action>
+	    
+	    <!-- Dados Rede Hotel-->
+	    
+	    <action name="pesquisarRedeHotel" class="com.mozart.web.actions.sistema.RedeHotelAction" >
+                 <result name="sucesso">/pages/modulo/sistema/redeHotel/pesquisar.jsp</result>
+	    </action>
+        <action name="manterRedeHotel" class="com.mozart.web.actions.sistema.RedeHotelAction" >
+                 <result name="sucesso">/pages/modulo/sistema/redeHotel/manter.jsp</result>
+                 <result name="erro">/pages/modulo/sistema/redeHotel/pesquisar.jsp</result>
+	    </action>
+	    
+	    <!-- Dados Hotel-->
+	    
+	    <action name="pesquisarHotel" class="com.mozart.web.actions.sistema.HotelAction" >
+                 <result name="sucesso">/pages/modulo/sistema/hotel/pesquisar.jsp</result>
+	    </action>
+        <action name="manterHotel" class="com.mozart.web.actions.sistema.HotelAction" >
+                 <result name="sucesso">/pages/modulo/sistema/hotel/manter.jsp</result>
+                 <result name="erro">/pages/modulo/sistema/hotel/pesquisar.jsp</result>
+	    </action>
+	    
+	    <!-- Dados Controla Data-->
+	    
+	    <action name="pesquisarControlaData" class="com.mozart.web.actions.sistema.ControlaDataAction" >
+                 <result name="sucesso">/pages/modulo/sistema/controlaData/pesquisar.jsp</result>
+	    </action>
+        <action name="manterControlaData" class="com.mozart.web.actions.sistema.ControlaDataAction" >
+                 <result name="sucesso">/pages/modulo/sistema/controlaData/manter.jsp</result>
+                 <result name="erro">/pages/modulo/sistema/controlaData/pesquisar.jsp</result>
+	    </action>
+	    
+	     <!-- Gerar Boleto -->
+	    
+	    <action name="gerarBoleto" class="com.mozart.web.actions.sistema.GerarBoletoAction" method="prepararGerarBoleto" >
+                 <result name="sucesso">/pages/modulo/sistema/gerarBoleto/manter.jsp</result>
+	    </action>
+	    
+	    <!-- Dados Achado e Perdido-->
+	    
+	    <action name="pesquisarAchadosPerdido" class="com.mozart.web.actions.sistema.AchadosPerdidoAction" >
+                 <result name="sucesso">/pages/modulo/sistema/achadosPerdido/pesquisar.jsp</result>
+	    </action>
+        <action name="manterAchadosPerdido" class="com.mozart.web.actions.sistema.AchadosPerdidoAction" >
+                 <result name="sucesso">/pages/modulo/sistema/achadosPerdido/manter.jsp</result>
+                 <result name="erro">/pages/modulo/sistema/achadosPerdido/pesquisar.jsp</result>
+	    </action>
+	    
+	    <!-- ISS -->
+	    
+	    <action name="pesquisarIss" class="com.mozart.web.actions.sistema.TributarioMunicipalAction" >
+                <result name="sucesso">/pages/modulo/tributario/municipal/pesquisarIss.jsp</result>
+	    </action>
+	    <action name="includeRPS" class="com.mozart.web.actions.sistema.TributarioMunicipalAction" >
+                <result name="sucesso">/pages/modulo/tributario/municipal/include/rps.jsp</result>
+	    </action>
+        <action name="manterIss" class="com.mozart.web.actions.sistema.TributarioMunicipalAction" >
+                 <result name="pesquisa">/pages/modulo/tributario/municipal/pesquisarIss.jsp</result>
+                 <result name="sucesso">/pages/modulo/tributario/municipal/manterIss.jsp</result>
+                 <result name="discriminacao">/pages/modulo/tributario/municipal/manterDiscriminacaoIss.jsp</result>
+                 <result name="erro">/pages/modulo/tributario/municipal/pesquisarIss.jsp</result>
+	    </action>
+	    
+        <action name="gerarLoteIss" class="com.mozart.web.actions.sistema.TributarioMunicipalAction" >
+                 <result name="sucesso">/pages/modulo/tributario/municipal/gerarLoteIss.jsp</result>
+                 <result name="erro">/pages/modulo/tributario/municipal/gerarLoteIss.jsp</result>
+                 <result name="download" type="stream">
+            		<param name="contentType">application/octet-stream</param>
+            		<param name="inputName">fileInputStream</param>
+            		<param name="contentDisposition">attachment;filename="${nomeArquivo}.xml"</param>
+            		<param name="bufferSize">1024</param>
+        		</result>
+	    </action>
+	    
+	    <action name="manterConfiguracaoTributaria" class="com.mozart.web.actions.sistema.ConfiguracaoHotelAction" >
+                 <result name="sucesso">/pages/modulo/sistema/hotel/configuracaoTributaria.jsp</result>
+                 <result name="erro">/pages/modulo/sistema/hotel/configuracaoTributaria.jsp</result>
+	    </action>
+    	    
+    	<!-- NFCE -->
+	    
+	    <action name="pesquisarNfce" class="com.mozart.web.actions.sistema.TributarioEstadualAction" >
+                <result name="sucesso">/pages/modulo/tributario/estadual/pesquisarNfce.jsp</result>
+	    </action>
+	    
+	    <!-- FCP -->
+	    
+	    <action name="pesquisarFcp" class="com.mozart.web.actions.sistema.TributarioEstadualFcpAction" >
+                <result name="sucesso">/pages/modulo/tributario/estadual/manterFcp.jsp</result>
+	    </action>
+	    
+	    <action name="manterFcp" class="com.mozart.web.actions.sistema.TributarioEstadualFcpAction" >
+                <result name="sucesso">/pages/modulo/tributario/estadual/manterFcp.jsp</result>
+	    </action>
+	    
+	</package>
+	
+</struts>

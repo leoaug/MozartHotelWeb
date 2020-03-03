@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+ <package name="comercial" extends="struts-default" namespace="/app/comercial" >
+	
+		<!-- Dados do grupo tarifa -->
+	    <action name="pesquisarGrupoTarifa" class="com.mozart.web.actions.comercial.GrupoTarifaAction" >
+                 
+                 <result name="sucesso">/pages/modulo/comercial/grupoTarifa/pesquisar.jsp</result>
+                 
+	    </action>
+
+	    <action name="manterGrupoTarifa" 	class="com.mozart.web.actions.comercial.GrupoTarifaAction" >
+                 
+                 <result name="sucesso">/pages/modulo/comercial/grupoTarifa/manter.jsp</result>
+                 
+	    </action>
+	    
+	    <!-- Dados da profissao -->
+	    <action name="pesquisarProfissao" class="com.mozart.web.actions.comercial.ProfissaoAction" >
+                 
+                 <result name="sucesso">/pages/modulo/comercial/profissao/pesquisar.jsp</result>
+                 
+	    </action>
+
+	    <action name="manterProfissao" 	class="com.mozart.web.actions.comercial.ProfissaoAction" >
+                 
+                 <result name="sucesso">/pages/modulo/comercial/profissao/manter.jsp</result>
+                 
+	    </action>
+	    <!-- Dados do grupo economico -->
+	    <action name="pesquisarGrupoEconomico" class="com.mozart.web.actions.comercial.GrupoEconomicoAction" >
+                 
+                 <result name="sucesso">/pages/modulo/comercial/grupoEconomico/pesquisar.jsp</result>
+                 
+	    </action>
+
+	    <action name="manterGrupoEconomico" 	class="com.mozart.web.actions.comercial.GrupoEconomicoAction" >
+                 
+                 <result name="sucesso">/pages/modulo/comercial/grupoEconomico/manter.jsp</result>
+                 
+	    </action>
+	    
+	    <!-- Dados do Hóspede -->
+	    <action name="pesquisarHospede" class="com.mozart.web.actions.comercial.FidelidadeAction" >
+                 
+                 <result name="sucesso">/pages/modulo/recepcao/hospede/pesquisar.jsp</result>
+                 
+	    </action>
+
+	    <action name="manterHospede" 	class="com.mozart.web.actions.comercial.FidelidadeAction" >
+                 
+                 <result name="sucesso">/pages/modulo/recepcao/hospede/manter.jsp</result>
+                 
+	    </action>
+	    <!-- Dados do Permuta -->
+	    <action name="pesquisarPermuta" class="com.mozart.web.actions.comercial.PermutaAction" >
+                 
+                 <result name="sucesso">/pages/modulo/comercial/permuta/pesquisar.jsp</result>
+                 
+	    </action>
+
+	    <action name="manterPermuta" 	class="com.mozart.web.actions.comercial.PermutaAction" >
+                 
+                 <result name="sucesso">/pages/modulo/comercial/permuta/manter.jsp</result>
+                 
+	    </action>
+	    
+
+	    <!-- Dados do Permuta -->
+	    <action name="pesquisarAcessoWeb" class="com.mozart.web.actions.comercial.AcessoWebAction" >
+                 
+                 <result name="sucesso">/pages/modulo/comercial/acessoWeb/pesquisar.jsp</result>
+                 
+	    </action>
+
+	    <action name="manterAcessoWeb" 	class="com.mozart.web.actions.comercial.AcessoWebAction" >
+                 
+                 <result name="sucesso">/pages/modulo/comercial/acessoWeb/manter.jsp</result>
+                 
+	    </action>
+	    
+	    <!-- Canal de Venda-->
+	    <action name="pesquisarCanal" class="com.mozart.web.actions.comercial.CanalVendaAction" >
+                 
+                 <result name="sucesso">/pages/modulo/comercial/canalVenda/pesquisar.jsp</result>
+                 
+	    </action>
+
+	    <action name="manterCanal" 	class="com.mozart.web.actions.comercial.CanalVendaAction" >
+                 
+                 <result name="sucesso">/pages/modulo/comercial/canalVenda/manter.jsp</result>
+                 
+	    </action>
+	    
+	     <!-- Dados do Tarifa -->
+	    <action name="pesquisarTarifa" class="com.mozart.web.actions.comercial.TarifaAction" >
+                 
+                 <result name="sucesso">/pages/modulo/comercial/tarifa/pesquisar.jsp</result>
+                 
+	    </action>
+
+	    <action name="manterTarifa" 	class="com.mozart.web.actions.comercial.TarifaAction" >
+                 
+                 <result name="sucesso">/pages/modulo/comercial/tarifa/manter.jsp</result>
+                 
+	    </action>
+	    <action name="prepararTarifaRelatorio" 	class="com.mozart.web.actions.comercial.TarifaAction" >
+                 
+                 <result name="sucesso">/pages/modulo/comercial/tarifa/relatorio.jsp</result>
+                 
+	    </action>
+	    
+	    
+	    
+	    
+	<!-- Caracteristica Geral-->
+	<action name="manterCaracteristicaGeral" 	class="com.mozart.web.actions.comercial.CaracteristicaGeralAction" >
+          <result name="sucesso">/pages/modulo/comercial/cadastroWeb/caracteristicaGeral/manter.jsp</result>
+	</action>
+	<action name="pesquisarCaracteristicaGeral" 	class="com.mozart.web.actions.comercial.CaracteristicaGeralAction" >
+          <result name="sucesso">/pages/modulo/comercial/cadastroWeb/caracteristicaGeral/pesquisar.jsp</result>
+	</action>
+	
+
+	<!-- Caracteristica hotel e tipo apto -->
+	<action name="manterCaracteristicaHotelTipo" 	class="com.mozart.web.actions.comercial.CaracteristicaHotelTipoAction" method="prepararGravacao" >
+          <result name="sucesso">/pages/modulo/comercial/cadastroWeb/caracteristicaHotelTipo/manter.jsp</result>
+	</action>
+	
+	<!-- Dados da Politica Hotel -->
+	    <action name="manterPoliticaHotel" class="com.mozart.web.actions.comercial.PoliticaHotelAction" >
+                 <result name="sucesso">/pages/modulo/comercial/cadastroWeb/politicaHotel/manter.jsp</result>
+        </action>
+	
+	
+	<!-- Noticia -->
+	<action name="pesquisarNoticia" 	class="com.mozart.web.actions.comercial.NoticiaAction" method="prepararPesquisa" >
+          <result name="sucesso">/pages/modulo/comercial/cadastroWeb/noticia/pesquisar.jsp</result>
+	</action>
+	
+	<action name="manterNoticia" 	class="com.mozart.web.actions.comercial.NoticiaAction"  >
+          <result name="sucesso">/pages/modulo/comercial/cadastroWeb/noticia/manter.jsp</result>
+	</action>
+	
+	<!-- Transferencia de Fotos -->
+	<action name="manterTransferenciaFotos" class="com.mozart.web.actions.comercial.TransferenciaFotosAction" method="prepararInclusao">
+          <result name="sucesso">/pages/modulo/comercial/cadastroWeb/transferenciaFotos/manter.jsp</result>
+	</action>
+    </package>
+</struts>

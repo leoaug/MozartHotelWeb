@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="starter" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+	<display-name>MozartHotel v1</display-name>
+
+
+ 	<context-param>
+      <description>Permite o lancamento das configurações da Alfa</description>
+      <param-name>ATIVAR_SERVICOS</param-name>
+      <param-value>TRUE</param-value>
+    </context-param>
+
+
+	<!-- Filters -->
+	<filter>
+		<filter-name>mozart-filter</filter-name>
+		<filter-class>com.mozart.web.controller.MozartFilter</filter-class>
+	</filter>
+	
+	<filter>
+		<filter-name>action2-cleanup</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ActionContextCleanUp</filter-class>
+	</filter>
+	<filter>
+		<filter-name>sitemesh</filter-name>
+		<filter-class>com.opensymphony.module.sitemesh.filter.PageFilter</filter-class>
+	</filter>
+	<filter>
+		<filter-name>action2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.FilterDispatcher</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>mozart-filter</filter-name>
+		<url-pattern>/pages/modulo/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>mozart-filter</filter-name>
+		<url-pattern>/app/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>mozart-filter</filter-name>
+		<url-pattern>/exportar</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>mozart-filter</filter-name>
+		<url-pattern>/paginar</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>mozart-filter</filter-name>
+		<url-pattern>/gerarBoleto</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>action2-cleanup</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>sitemesh</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>action2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!--Configurando o timeout da sessão para 20 minutos -->
+
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+
+
+
+
+	<!-- Listeners -->
+	<listener>
+		<listener-class>com.mozart.web.controller.SessionListener</listener-class>
+	</listener>
+
+	<!-- Servlets -->
+	<servlet>
+		<servlet-name>jspSupportServlet</servlet-name>
+		<servlet-class>org.apache.struts2.views.JspSupportServlet</servlet-class>
+		<load-on-startup>5</load-on-startup>
+	</servlet>
+	<servlet>
+		<servlet-name>Exportar</servlet-name>
+		<servlet-class>com.duques.servlet.Exportar</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Paginar</servlet-name>
+		<servlet-class>com.duques.servlet.Paginar</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Ajax</servlet-name>
+		<servlet-class>com.mozart.web.controller.MozartHotelAjax</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>MozartHotelBoleto</servlet-name>
+		<servlet-class>com.mozart.web.controller.MozartHotelBoleto</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Exportar</servlet-name>
+		<url-pattern>/exportar</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Paginar</servlet-name>
+		<url-pattern>/paginar</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Ajax</servlet-name>
+		<url-pattern>/app/ajax/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MozartHotelBoleto</servlet-name>
+		<url-pattern>/gerarBoleto</url-pattern>
+	</servlet-mapping>
+
+	<!-- Welcome file lists -->
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<error-page>
+	<exception-type>com.mozart.web.exception.MozartUsuarioException</exception-type>
+	<location>/pages/logoff.jsp</location>
+	</error-page>
+	<error-page>
+	<exception-type>com.mozart.web.exception.MozartSemPermissaoException</exception-type>
+	<location>/pages/semPermissao.jsp</location>
+	</error-page>
+	<error-page>
+	<exception-type>com.mozart.web.exception.MozartForaDoHorarioException</exception-type>
+	<location>/pages/foraHorario.jsp</location>
+	</error-page>
+
+</web-app>

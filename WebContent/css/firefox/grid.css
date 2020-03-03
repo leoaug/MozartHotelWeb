@@ -1,0 +1,394 @@
+.exportGrid {
+	font-size: 12pt;
+}
+
+.exportGridCabecalho {
+	background-color: rgb(214, 214, 214);
+}
+
+.exportGridBody {
+	
+}
+
+.orderClass {
+	right: 18px;
+	top: 2px;
+	font-weight: normal;
+	font-size: 11px;
+	text-decoration: none;
+}
+
+.closeEl {
+	right: 1px;
+	top: 1px;
+	font-weight: normal;
+	font-size: 11px;
+	text-decoration: none;
+}
+
+div.tabelaBody {
+	float: left;
+	width: 5000px;
+}
+
+div.divPai {
+	margin: 0px;
+	/* background-color: rgb(214,214,214);*/
+	background-color: rgb(240,240,240);
+	position: static;
+	overflow-x: auto;
+    overflow-y: hidden;
+}
+
+div.divPai img {
+	cursor: pointer;
+}
+
+div.divPai a {
+	cursor: pointer;
+}
+
+/*Div Pesquisa, rusultado da pesquisa*/
+.divPesquisa {
+	background-color: rgb(200, 200, 200);
+	border: 1px solid rgb(128, 128, 128);
+	margin: 3px;
+	overflow: auto;
+	width: 100%;
+	position: absolute;
+}
+
+.divPesquisaFullScreen {
+	background-color: rgb(200, 200, 200);
+	border: 2px solid rgb(128, 128, 128);
+	width: 100%;
+	top: 2px;
+	left: 2px;
+	margin: 3px;
+	overflow: auto;
+	position: absolute;
+}
+
+.divPesquisaFull {
+	background-color: rgb(200, 200, 200);
+	border: 1px solid rgb(128, 128, 128);
+	margin: 3px;
+	overflow: auto;
+}
+
+/*FINAL DOS DIVS DE PESQUISA*/ /*Primeiro div do cabeçalho*/
+div.divTituloGrid {
+	width: 25%;
+	margin: 1px;
+	background-color: rgb(247, 247, 247);
+	float: left;
+	height: 50px;
+}
+
+div.divTituloGrid h1 {
+	font-family: verdana;
+	font-size: 10pt;
+	text-align: left;
+	margin-top: 2px;
+	padding-top: 0px;
+	text-decoration: underline;
+	margin-bottom: 2px;
+}
+
+div.divNavegacaoInformacoes {
+	float: left;
+	text-align: left;
+}
+
+div.divNavegacaoInformacoes p {
+	font-family: verdana;
+	font-size: 8pt;
+	text-align: left;
+	padding-top: 0px;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+/*Fim primeiro div do cabeçalho*/ /*Segundo div do cabeçalho*/
+div.divPaginacao {
+	width: 15%;
+	margin: 1px;
+	background-color: rgb(247, 247, 247);
+	float: left;
+	height: 50px;
+	padding-left: 2px;
+}
+
+div.divPaginacao h1 {
+	font-family: verdana;
+	font-size: 8pt;
+	text-align: left;
+	margin-top: 2px;
+	padding-top: 0px;
+	margin-bottom: 2px;
+	text-align: center;
+}
+
+div.divPaginacao p {
+	font-family: verdana;
+	font-size: 8pt;
+	text-align: left;
+	margin-top: 5px;
+	margin-left: 40px;
+	padding-top: 0px;
+	margin-bottom: 2px;
+}
+
+div.divPaginacao input {
+	border-top: 0px;
+	border-bottom: 5px;
+	border: 1px solid Black;
+	background-color: rgb(231, 231, 231);
+	font-family: verdana;
+}
+
+div.divPaginacao img {
+	margin-left: 5px;
+	height: 20px;
+	width: 20px;
+	margin-top: 0px;
+}
+
+/*Fim segundo div do cabeçalho*/ /*Terceiro div do cabeçalho*/
+div.divExportacao {
+	width: 27%;
+	margin: 1px;
+	background-color: rgb(247, 247, 247);
+	float: left;
+	height: 50px;
+	padding-left: 2px;
+	text-align: center;
+}
+
+div.divExportacao h1 {
+	font-family: verdana;
+	font-size: 8pt;
+	text-align: left;
+	margin-top: 2px;
+	padding-top: 0px;
+	margin-bottom: 2px;
+	text-align: center;
+}
+
+div.divExportacao p {
+	margin-top: 0px;
+	margin-left: 20px;
+}
+
+div.divExportacao img {
+	margin-top: 0px;
+	margin-left: 4px;
+	margin-bottom: 2px;
+	padding-top: 0px;
+	padding-left: 2px;
+	padding-right: 2px;
+	float: left;
+	height: 30px;
+	width: 30px;
+}
+
+/*Fim terceiro div do cabeçalho*/ /*Quarto div do cabeçalho*/
+div.divNavegacao {
+	width: 29%;
+	margin: 1px;
+	background-color: rgb(247, 247, 247);
+	float: left;
+	height: 50px;
+	padding-left: 2px;
+}
+
+div.divNavegacao h1 {
+	font-family: verdana;
+	font-size: 8pt;
+	text-align: left;
+	margin-top: 2px;
+	padding-top: 0px;
+	margin-bottom: 2px;
+	text-align: center;
+}
+
+div.divNavegacao p {
+	font-family: verdana;
+	font-size: 8pt;
+	text-align: left;
+	margin-top: 5px;
+	margin-left: 40px;
+	padding-top: 0px;
+	margin-bottom: 2px;
+}
+
+div.divNavegacao img {
+	margin-left: 5px;
+	height: 20px;
+	width: 20px;
+	margin-top: 0px;
+}
+
+div.divNavegacao select {
+	margin-left: 2px;
+	font-family: verdana;
+	font-size: 8pt;
+	text-align: left;
+	width: 100px;
+	background-color: rgb(231, 231, 231);
+}
+
+/*Fim quarto div do cabeçalho*/ /*Drag*/
+div.divRecebeDrag {
+	margin: 1px;
+	float: left;
+}
+
+div.divLinhas {
+	list-style: none;
+	margin-top: 20px;
+}
+
+div.divLinhas ul {
+	left: 0px;
+	margin: 0px;
+	padding-left: 0px;
+	list-style: none;
+}
+
+div.divLinhas li {
+	height: 20px;
+	font-family: Verdana;
+	font-size: 12px;
+	margin-top: 2px;
+	padding-top: 5px;
+	cursor: pointer;
+}
+
+div.divLinhas li a {
+	
+}
+
+div.divHandle {
+	cursor: move;
+	float: left;
+	width: 100%;
+	height: 20px;
+	background-image: url("../../imagens/aba.jpg");
+	background-repeat: repeat-x;
+	margin-top: 2px;
+	position: relative;
+}
+
+div.divHandleTit {
+	cursor: move;
+	text-align: left;
+	float: left;
+	font-size: 11px;
+	width: 100%;
+	height: 20px;
+	margin-top: 2px;
+	color: black;
+	margin-left: 0px;
+	background-color: rgb( 200, 200, 200);
+}
+
+div.divHandleTit img {
+	float: right;
+	margin-top: 2px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	padding: 0px;
+	left: 16px;
+	height: 16px;
+}
+
+div.divHandleTit p {
+	float: left;
+	margin-top: 2px;
+	margin-left: 1px;
+}
+
+div.divHandleTitGroup {
+	cursor: move;
+	text-align: left;
+	float: left;
+	font-size: 11px;
+	width: 100%;
+	height: 20px;
+	margin-top: 0px;
+	color: White;
+	margin-left: 0px;
+	background-color: rgb(255, 99, 99);
+}
+
+div.divHandleTitGroup img {
+	float: right;
+	margin-top: 2px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	padding: 0px;
+	left: 16px;
+	height: 16px;
+}
+
+div.divHandleTitGroup p {
+	margin-top: 0px;
+	float: left;
+	margin-top: 2px;
+	margin-left: 1px;
+}
+
+div.divImagem {
+	width: 38px;
+	text-align: right;
+	float: right;
+	margin-top: 2px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	padding: 0px;
+}
+
+div.divImagem img {
+	float: left;
+	margin-right: 1px;
+}
+
+.linhaGrupo {
+	background-color: rgb(128, 128, 128);
+}
+
+.linhaSim {
+	background-color: rgb(231, 231, 231);
+	height: 100%;
+}
+
+.linhaNao {
+	background-color: rgb(247, 247, 247);
+	height: 100%;
+}
+
+.linhaClicada {
+	background-color: rgb(255, 181, 181);
+}
+
+.linhaOver {
+	background-color: rgb(255, 255, 181);
+}
+
+.dragAjuda {
+	float: left;
+	border: 1px dashed #0066CC;
+	width: 100px !important;
+}
+
+.dragAtivo {
+	background-color: red;
+}
+
+.dragHover {
+	background-color: transparent;
+}

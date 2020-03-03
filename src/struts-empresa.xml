@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+ <package name="empresa" extends="struts-default" namespace="/app/empresa" >
+	
+		<!-- Dados da Empresa -->
+	
+	    <action name="pesquisarEmpresa" class="com.mozart.web.actions.empresa.EmpresaAction" >
+                 
+                 <result name="sucesso">/pages/modulo/empresa/pesquisar.jsp</result>
+                 
+	    </action>
+        
+        <action name="manterEmpresa" class="com.mozart.web.actions.empresa.EmpresaAction" >
+                 
+                 <result name="sucesso">/pages/modulo/empresa/manter.jsp</result>
+                 <result name="pesquisa" type="redirectAction">
+                 	<param name="namespace">/app</param>
+                 	<param name="actionName">main!preparar.action</param>
+                 </result>
+	    </action>
+
+        <action name="relatorio" class="com.mozart.web.actions.empresa.EmpresaAction" >
+                 
+                 <result name="sucesso">/pages/modulo/empresa/relatorio.jsp</result>
+                 
+	    </action>
+
+		 <!-- Dados Tipo Empresa -->
+	
+	    <action name="pesquisarTipoEmpresa" class="com.mozart.web.actions.empresa.TipoEmpresaAction" >
+                 <result name="sucesso">/pages/modulo/empresa/tipoEmpresa/pesquisar.jsp</result>
+	    </action>
+        
+        <action name="manterTipoEmpresa" class="com.mozart.web.actions.empresa.TipoEmpresaAction" >
+                 <result name="sucesso">/pages/modulo/empresa/tipoEmpresa/manter.jsp</result>
+	    </action>
+
+
+    </package>
+</struts>

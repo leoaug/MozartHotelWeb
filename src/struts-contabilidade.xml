@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+ <package name="contabilidade" extends="struts-default" namespace="/app/contabilidade" >
+
+		<!-- Dados do movimento contabil -->
+	    <action name="pesquisarMovimentoContabil" class="com.mozart.web.actions.contabilidade.MovimentoContabilAction" method="prepararPesquisa" >
+                 <result name="sucesso">/pages/modulo/contabilidade/movimentoContabil/pesquisar.jsp</result>
+	    </action>
+
+	    <action name="manterMovimentoContabil" class="com.mozart.web.actions.contabilidade.MovimentoContabilAction" >
+                 <result name="sucesso">/pages/modulo/contabilidade/movimentoContabil/manter.jsp</result>
+                 <result name="pesquisa" type="redirectAction">/pesquisarMovimentoContabil!prepararPesquisa.action</result>
+	    </action>
+
+	    <action name="relatorioMovimentoContabil" class="com.mozart.web.actions.contabilidade.MovimentoContabilAction" >
+                 <result name="sucesso">/pages/modulo/contabilidade/movimentoContabil/relatorio.jsp</result>
+	    </action>
+	    
+	    <action name="encerrarMovimentoContabil" class="com.mozart.web.actions.contabilidade.MovimentoContabilAction" >
+                 <result name="sucesso">/pages/modulo/contabilidade/movimentoContabil/encerrar.jsp</result>
+                 <result name="pesquisa">/pages/modulo/contabilidade/movimentoContabil/pesquisar.jsp</result>
+	    </action>
+	    
+	    <action name="includeMovimentoContabil" class="com.mozart.web.actions.contabilidade.MovimentoContabilAction" >
+                 <result name="sucesso">/pages/modulo/contabilidade/movimentoContabil/include/manterLancamento.jsp</result>
+	    </action>
+	    <!-- Dados do demonstrativo de resultados -->
+
+	    <action name="manterDemonstrativoResultado" class="com.mozart.web.actions.contabilidade.DemonstrativoResultadoAction" method="prepararManter" >
+                 <result name="sucesso">/pages/modulo/contabilidade/demonstrativoResultado/manter.jsp</result>
+	    </action>
+
+	    <action name="relatorioDemonstrativoResultado" class="com.mozart.web.actions.contabilidade.DemonstrativoResultadoAction" method="prepararRelatorio" >
+                 <result name="sucesso">/pages/modulo/contabilidade/demonstrativoResultado/relatorio.jsp</result>
+	    </action>
+	    
+	    <!-- Dados da Classificação Contábil do Faturamento -->
+	    <action name="manterClassificacaoContabilFaturamento" class="com.mozart.web.actions.contabilidade.ClassificacaoContabilFaturamentoAction" >
+	    		<result name="sucesso">/pages/modulo/contabilidade/classificacaoContabil/faturamento/manter.jsp</result>
+	    		<result name="alterar">/pages/modulo/contabilidade/classificacaoContabil/faturamento/alterar.jsp</result>
+	    		<result name="pesquisa">/pages/modulo/contabilidade/classificacaoContabil/faturamento/pesquisar.jsp</result>
+	    </action>
+	    <!-- Dados da Classificação Contas a Receber -->
+	    <action name="manterClassificacaoContabilCReceber" class="com.mozart.web.actions.contabilidade.ClassificacaoContabilCReceberAction" >
+	    		<result name="sucesso">/pages/modulo/contabilidade/classificacaoContabil/contasReceber/manter.jsp</result>
+	    		<result name="alterar">/pages/modulo/contabilidade/classificacaoContabil/contasReceber/alterar.jsp</result>
+	    		<result name="pesquisa">/pages/modulo/contabilidade/classificacaoContabil/contasReceber/pesquisar.jsp</result>
+	    		<result name="input">/pages/modulo/contabilidade/classificacaoContabil/contasReceber/pesquisar.jsp</result>
+	    </action>
+	    <!-- Dados da Classificação Contas a Pagar -->
+	    <action name="manterClassificacaoContabilCPagar" class="com.mozart.web.actions.contabilidade.ClassificacaoContabilCPagarAction" >
+	    		<result name="sucesso">/pages/modulo/contabilidade/classificacaoContabil/contasPagar/manter.jsp</result>
+	    		<result name="alterar">/pages/modulo/contabilidade/classificacaoContabil/contasPagar/alterar.jsp</result>
+	    		<result name="pesquisa">/pages/modulo/contabilidade/classificacaoContabil/contasPagar/pesquisar.jsp</result>
+	    		<result name="input">/pages/modulo/contabilidade/classificacaoContabil/contasPagar/pesquisar.jsp</result>
+	    </action>
+	    <!-- Dados da Classificação Estoque -->
+	    <action name="manterClassificacaoContabilEstoque" class="com.mozart.web.actions.contabilidade.ClassificacaoContabilEstoqueAction" >
+	    		<result name="sucesso">/pages/modulo/contabilidade/classificacaoContabil/estoque/manter.jsp</result>
+	    		<result name="alterar">/pages/modulo/contabilidade/classificacaoContabil/estoque/alterar.jsp</result>
+	    		<result name="pesquisa">/pages/modulo/contabilidade/classificacaoContabil/estoque/pesquisar.jsp</result>
+	    		<result name="input">/pages/modulo/contabilidade/classificacaoContabil/estoque/pesquisar.jsp</result>
+	    </action>
+
+	    <!-- Dados da Classificação Padrão -->
+		<action name="pesquisarClassificacaoContabilPadrao" class="com.mozart.web.actions.contabilidade.ClassificacaoContabilPadraoAction" method="prepararPesquisa" >
+                 <result name="sucesso">/pages/modulo/contabilidade/classificacaoContabil/padrao/pesquisar.jsp</result>
+	    </action>
+
+	    <action name="manterClassificacaoContabilPadrao" class="com.mozart.web.actions.contabilidade.ClassificacaoContabilPadraoAction" >
+                 <result name="sucesso">/pages/modulo/contabilidade/classificacaoContabil/padrao/manter.jsp</result>
+                 <result name="pesquisa" type="redirectAction">/pesquisarClassificacaoContabilPadrao!prepararPesquisa.action</result>
+	    </action>
+
+	    <action name="includeClassificacaoContabilPadrao" class="com.mozart.web.actions.contabilidade.ClassificacaoContabilPadraoAction" >
+                 <result name="sucesso">/pages/modulo/contabilidade/classificacaoContabil/padrao/include/manterLancamento.jsp</result>
+	    </action>
+	    
+	    <!-- Dados da Imobilização -->
+		<action name="pesquisarImobilizadoDepreciacao" class="com.mozart.web.actions.contabilidade.ImobilizadoDepreciacaoAction" >
+            <result name="sucesso">/pages/modulo/contabilidade/depreciacao/pesquisar.jsp</result>
+	    </action>
+	    
+	    <action name="manterImobilizadoDepreciacao" class="com.mozart.web.actions.contabilidade.ImobilizadoDepreciacaoAction" >
+            <result name="sucesso">/pages/modulo/contabilidade/depreciacao/manter.jsp</result>
+            <result name="pesquisa">/pages/modulo/contabilidade/depreciacao/pesquisar.jsp</result>
+	    </action>
+	    
+	    <action name="encerrarImobilizadoDepreciacao" class="com.mozart.web.actions.contabilidade.ImobilizadoDepreciacaoAction" >
+                 <result name="sucesso">/pages/modulo/contabilidade/depreciacao/encerrar.jsp</result>
+                 <result name="pesquisa">/pages/modulo/contabilidade/depreciacao/pesquisar.jsp</result>
+	    </action>
+	    
+	    <action name="relatorioImobilizadoDepreciacao" class="com.mozart.web.actions.contabilidade.ImobilizadoDepreciacaoAction" >
+            <result name="sucesso">/pages/modulo/contabilidade/depreciacao/relatorio.jsp</result>
+            <result name="pesquisa">/pages/modulo/contabilidade/depreciacao/pesquisar.jsp</result>
+	    </action>
+	    
+    </package>
+</struts>

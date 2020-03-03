@@ -1,0 +1,70 @@
+.fancyTable {
+	/* text */
+	font-family: verdana;
+	}
+
+
+.fancyTable td, .fancyTable th {
+	/* appearance */
+	border: 1px solid #778899;
+	
+	/* size */
+	padding: 5px;
+	}
+
+.fancyTable tbody tr td {
+	/* appearance */
+	/*background-color: #eef2f9;*/
+	background-image: -moz-linear-gradient(
+		top,
+		rgba(255,255,255,0.4) 0%,
+		rgba(255,255,255,0.2) 50%,
+		rgba(255,255,255,0.1) 51%,
+		rgba(255,255,255,0.0) 100%);
+	
+	background-image: -webkit-gradient(
+		linear, left top, left bottom,
+		color-stop(0%,rgba(255,255,255,0.4)),
+		color-stop(50%,rgba(255,255,255,0.2)),
+		color-stop(51%,rgba(255,255,255,0.1)),
+		color-stop(100%,rgba(255,255,255,0.0)));
+		
+	/* text */
+	color: #262c31;
+	font-size: 11px;
+}
+
+.fancyTable tbody img {
+	margin: 0px;
+	margin-left: 1px;
+	padding-bottom: 0px;
+	border: 0px;
+	height: 20px;
+	width: 20px;
+	vertical-align: bottom;
+}
+
+
+.fancyTable thead tr th,
+.fancyTable tfoot tr td {
+	/* appearance 
+	background-color: #8ca9cf;*/
+	background-color: #eef2f9;
+	background-image: -moz-linear-gradient(
+		top,
+		rgba(255,255,255,0.4) 0%,
+		rgba(255,255,255,0.2) 50%,
+		rgba(255,255,255,0.1) 51%,
+		rgba(255,255,255,0.0) 100%);
+	
+	background-image: -webkit-gradient(
+		linear, left top, left bottom,
+		color-stop(0%,rgba(255,255,255,0.4)),
+		color-stop(50%,rgba(255,255,255,0.2)),
+		color-stop(51%,rgba(255,255,255,0.1)),
+		color-stop(100%,rgba(255,255,255,0.0)));
+		
+	/* text */
+	color: #121517;
+	font-size: 12px;	
+}
