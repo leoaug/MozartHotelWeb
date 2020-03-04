@@ -5875,7 +5875,7 @@ public class MozartHotelAjax extends HttpServlet {
 	public void consultarEmpresaPorRazaoSocialLike(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException,
 			MozartSessionException {
-		try {
+		try { 
 			HotelEJB hotel = (HotelEJB) request.getSession().getAttribute(
 					"HOTEL_SESSION");
 		

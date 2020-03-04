@@ -20,7 +20,7 @@ import com.mozart.model.vo.HotelVO;
 import com.mozart.model.vo.TipoLancamentoVO;
 import com.mozart.web.actions.BaseAction;
 import com.mozart.web.util.MozartComboWeb;
-
+ 
 @SuppressWarnings({"serial", "finally"})
 public class ApiGeralAction extends BaseAction{
 	
