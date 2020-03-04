@@ -3,9 +3,7 @@
 <%@taglib prefix="s" uri="/struts-tags" %>
 
 <script>
-    function init(){
-        
-    }
+
 
     function prepararInclusao(){
 		vForm = document.forms[0];

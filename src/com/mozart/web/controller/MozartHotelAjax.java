@@ -38,6 +38,7 @@ import com.mozart.model.delegate.OperacionalDelegate;
 import com.mozart.model.delegate.RedeDelegate;
 import com.mozart.model.delegate.ReservaDelegate;
 import com.mozart.model.delegate.SistemaDelegate;
+import com.mozart.model.delegate.TipoLancamentolDelegate;
 import com.mozart.model.delegate.UsuarioDelegate;
 import com.mozart.model.ejb.entity.ApartamentoEJB;
 import com.mozart.model.ejb.entity.CamareiraEJB;
@@ -81,6 +82,7 @@ import com.mozart.model.ejb.entity.UsuarioPontoVendaEJB;
 import com.mozart.model.ejb.entity.UsuarioPontoVendaEJBPK;
 import com.mozart.model.ejb.entity.UsuarioSessionEJB;
 import com.mozart.model.exception.MozartSessionException;
+import com.mozart.model.util.Criptografia;
 import com.mozart.model.util.MozartUtil;
 import com.mozart.model.vo.AdministradorCanaisVO;
 import com.mozart.model.vo.ApartamentoHospedeVO;
@@ -105,6 +107,7 @@ import com.mozart.model.vo.EmpresaVO;
 import com.mozart.model.vo.EstoqueItemVO;
 import com.mozart.model.vo.FiscalCodigoVO;
 import com.mozart.model.vo.HospedeVO;
+import com.mozart.model.vo.HotelVO;
 import com.mozart.model.vo.ItemEstoqueVO;
 //import com.mozart.model.vo.ListaFiscalServicoVO;
 import com.mozart.model.vo.OcupDispVO;
@@ -5770,7 +5773,104 @@ public class MozartHotelAjax extends HttpServlet {
 		out.println(sb.toString());
 		out.close();
 	}
+	
+	public void gerarToken(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException,
+			MozartSessionException {
+		
+		
+		try {
+			HotelEJB hotel = (HotelEJB) request.getSession().getAttribute(
+					"HOTEL_SESSION");
+		
+			String valor = request.getParameter("OBJ_VALUE");
+			
+			PrintWriter out = response.getWriter();
+			if(valor.trim().equals("")) {
+				out.write("");
+			} else {
+				out.write(Criptografia.instance().crypto(valor));
+			}
+			
+			out.close();
+			/*
+			if (!MozartUtil.isNull(this.entidade.getUsuario().getSenha())) { 
 
+				this.entidade.setToken(Criptografia.instance().crypto(this.entidade.getUsuario().getSenha()));  
+	            
+			}
+			*/
+		} catch (Exception e) {
+			e.printStackTrace();
+			MozartWebUtil.error(MozartWebUtil.getLogin(request),
+					e.getMessage(), this.log);
+		}
+
+				
+	}
+
+	public void getTipoLancamentoReceitaERecebimento(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException,
+			MozartSessionException {
+		
+		
+		try {
+			HotelEJB hotel = (HotelEJB) request.getSession().getAttribute(
+					"HOTEL_SESSION");
+		
+			String valor = request.getParameter("OBJ_VALUE");
+			
+			HotelVO filtro = new HotelVO();
+			filtro.setIdHotel(Long.parseLong(valor));
+			
+			//request.getSession().setAttribute("listaRecebimento", TipoLancamentolDelegate.instance().consultarTipoLancamentoRecebimento(filtro)); 
+			
+			
+			List <TipoLancamentoVO> listaRecebimento = TipoLancamentolDelegate.instance().consultarTipoLancamentoRecebimento(filtro);
+			List <TipoLancamentoVO> listaReceita = TipoLancamentolDelegate.instance().consultarTipoLancamentoReceita(filtro);
+			
+			PrintWriter out = response.getWriter();
+			StringBuilder builder = new StringBuilder();
+			
+			
+			builder.append("<div id=\"idDivLancamentoReceitaRecebimento\" style=\"height:200px;\">");            
+			builder.append("	<div class=\"divLinhaCadastro\"> ");
+			builder.append("		<div class=\"divItemGrupo\" style=\"width:500px;\" > ");
+			builder.append("			<p style=\"width:150px;\">Tipo Lançamento receita </p>" );
+			builder.append("				<select name=\"tipoLancamentoReceita.idTipoLancamento\" style=\"width:300px\">");
+			builder.append("					<option value=\"0\" >Selecione</option>");
+			for(TipoLancamentoVO voReceita : listaReceita) {
+				builder.append("				<option value="+voReceita.getIdTipoLancamento() +">"+ voReceita.getDescricaoLancamento() +"</option>");
+			}
+			builder.append("                </select>");
+			builder.append("		</div>");
+			builder.append("	</div>");
+	           
+			builder.append("   <div class=\"divLinhaCadastro\">");			
+			builder.append("	   <div class=\"divItemGrupo\" style=\"width:500px;\" >");  
+			builder.append("			<p style=\"width:150px;\">Tipo Lançamento recebimento </p>" );
+			builder.append("				<select name=\"tipoLancamentoRecebimento.idTipoLancamento\" style=\"width:300px\">");
+			builder.append("					<option value=\"0\" >Selecione</option>");
+			for(TipoLancamentoVO voRecebimento : listaRecebimento) {
+				builder.append("				<option value="+ voRecebimento.getIdTipoLancamento()+">"+voRecebimento.getDescricaoLancamento()+"</option>");
+			}
+			builder.append("                </select>");
+			builder.append("		</div>");
+			builder.append("   </div>");  	            		            	
+			builder.append("</div>");    
+           
+			
+            out.write(builder.toString());
+            
+            
+		} catch (Exception e) {
+			e.printStackTrace();
+			MozartWebUtil.error(MozartWebUtil.getLogin(request),
+					e.getMessage(), this.log);
+		}
+
+				
+	}
 	
 	// public void selecionarListaFiscalServico(HttpServletRequest request,
 	// HttpServletResponse response) throws ServletException, IOException {

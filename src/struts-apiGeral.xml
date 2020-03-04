@@ -18,10 +18,13 @@
         <action name="manterApiGeral" class="com.mozart.web.actions.apiGeral.ApiGeralAction" >
                  
                  <result name="sucesso">/pages/modulo/apiGeral/manter.jsp</result>
+                 <result name="input">/pages/modulo/apiGeral/manter.jsp</result>
+                 <!--  
                  <result name="pesquisa" type="redirectAction">
                  	<param name="namespace">/app</param>
                  	<param name="actionName">main!preparar.action</param>
                  </result>
+                 -->
 	    </action>
 
         <action name="relatorio" class="com.mozart.web.actions.apiGeral.ApiGeralAction" >

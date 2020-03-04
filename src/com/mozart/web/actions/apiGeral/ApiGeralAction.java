@@ -4,13 +4,18 @@ import java.util.List;
 import java.util.ArrayList;
 
 import com.mozart.model.delegate.ApiGeralDelegate;
+import com.mozart.model.delegate.HotelDelegate;
+import com.mozart.model.delegate.TipoLancamentolDelegate;
 import com.mozart.model.ejb.entity.ApiContratoEJB;
 import com.mozart.model.ejb.entity.ApiGeralEJB;
 import com.mozart.model.ejb.entity.ApiVendedorEJB;
 import com.mozart.model.exception.MozartSessionException;
 import com.mozart.model.exception.MozartValidateException;
+import com.mozart.model.util.Criptografia;
 import com.mozart.model.util.MozartUtil;
 import com.mozart.model.vo.ApiGeralVO;
+import com.mozart.model.vo.HotelVO;
+import com.mozart.model.vo.TipoLancamentoVO;
 import com.mozart.web.actions.BaseAction;
 import com.mozart.web.util.MozartComboWeb;
 
@@ -26,41 +31,36 @@ public class ApiGeralAction extends BaseAction{
 	private String empresaCpf;
 	
 	
+	private HotelVO hotelContrato;
+	private HotelVO hotelVendedor;
+	
+	private List <HotelVO> listaHoteis;
+	
+	private List <TipoLancamentoVO> listaRecebimento;
+	private TipoLancamentoVO tipoLancamentoRecebimento;
+	
+	private List <TipoLancamentoVO> listaReceita;
+	private TipoLancamentoVO tipoLancamentoReceita;
+	
 	private Long indice;
 
 
 	
-	public ApiGeralAction(){
+	public ApiGeralAction() throws MozartSessionException{
 		filtro = new ApiGeralVO();
 		entidade = new ApiGeralEJB();
-		
-		/*
-		tipoEmpresaList = new ArrayList<MozartComboWeb>();
-		tipoEmpresaList.add( new MozartComboWeb("A","Agência de Turismo"));
-		tipoEmpresaList.add( new MozartComboWeb("O","Operadora"));
-		tipoEmpresaList.add( new MozartComboWeb("E","Empresa"));
-		tipoEmpresaList.add( new MozartComboWeb("P","Particular"));
-		tipoEmpresaList.add( new MozartComboWeb("D","Diversos"));
+		tipoLancamentoRecebimento = new TipoLancamentoVO();
+		tipoLancamentoReceita = new TipoLancamentoVO();
+		hotelContrato = new HotelVO();
+		hotelVendedor = new HotelVO();
 		
 		
-		tipoReferenciaList = new ArrayList<MozartComboWeb>();
-		tipoReferenciaList.add( new MozartComboWeb("B","Bancária"));
-		tipoReferenciaList.add( new MozartComboWeb("C","Comercial"));
+		this.listaHoteis = HotelDelegate.instance().consultarHoteisAtivos();
 		
 		
-		pensaoList = new ArrayList<MozartComboWeb>();
-		pensaoList.add( new MozartComboWeb("MAP","Meia Pensão"));
-		pensaoList.add( new MozartComboWeb("FAP","Pensão Completa"));
-		pensaoList.add( new MozartComboWeb("SIM","Com Café"));
-		pensaoList.add( new MozartComboWeb("NAO","Sem Café"));
-		pensaoList.add( new MozartComboWeb("ALL","All inclusive"));
+		this.listaRecebimento = new ArrayList<TipoLancamentoVO>();
+		this.listaReceita = new ArrayList<TipoLancamentoVO>();
 		
-		quemPagaList = new ArrayList<MozartComboWeb>();
-		quemPagaList.add( new MozartComboWeb("E","Empresa"));
-		quemPagaList.add( new MozartComboWeb("H","Hóspede"));
-		
-		
-		*/
 		
 		this.ativoList = new ArrayList<MozartComboWeb>();
 		this.ativoList.add(new MozartComboWeb("S", "Sim"));
@@ -95,6 +95,9 @@ public class ApiGeralAction extends BaseAction{
 		
 		request.getSession().removeAttribute("listaPesquisa");
 		request.getSession().removeAttribute("entidadeSession");
+		
+		request.getSession().setAttribute("listaRecebimento", this.listaRecebimento);
+		request.getSession().setAttribute("listaReceita", this.listaReceita);
 
 		return SUCESSO_FORWARD;
 		
@@ -210,8 +213,6 @@ public class ApiGeralAction extends BaseAction{
 	}
 
 
-	
-
 
 	public String pesquisar(){
 		try{
@@ -282,6 +283,14 @@ public class ApiGeralAction extends BaseAction{
 	public void setAtivoList(List<MozartComboWeb> ativoList) {
 		this.ativoList = ativoList;
 	}
+	
+	
+	public List<TipoLancamentoVO> getListaRecebimento() {
+		return listaRecebimento;
+	}
+	public void setListaRecebimento(List<TipoLancamentoVO> listaRecebimento) {
+		this.listaRecebimento = listaRecebimento;
+	}
 	public ApiContratoEJB getApiContrato() {
 		return apiContrato;
 	}
@@ -294,7 +303,43 @@ public class ApiGeralAction extends BaseAction{
 	public void setApiVendedor(ApiVendedorEJB apiVendedor) {
 		this.apiVendedor = apiVendedor;
 	}
+	public List<HotelVO> getListaHoteis() {
+		return listaHoteis;
+	}
+	public void setListaHoteis(List<HotelVO> listaHoteis) {
+		this.listaHoteis = listaHoteis;
+	}
+	public TipoLancamentoVO getTipoLancamentoRecebimento() {
+		return tipoLancamentoRecebimento;
+	}
+	public void setTipoLancamentoRecebimento(TipoLancamentoVO tipoLancamentoRecebimento) {
+		this.tipoLancamentoRecebimento = tipoLancamentoRecebimento;
+	}
+	public List<TipoLancamentoVO> getListaReceita() {
+		return listaReceita;
+	}
+	public void setListaReceita(List<TipoLancamentoVO> listaReceita) {
+		this.listaReceita = listaReceita;
+	}
+	public TipoLancamentoVO getTipoLancamentoReceita() {
+		return tipoLancamentoReceita;
+	}
+	public void setTipoLancamentoReceita(TipoLancamentoVO tipoLancamentoReceita) {
+		this.tipoLancamentoReceita = tipoLancamentoReceita;
+	}
+	public HotelVO getHotelContrato() {
+		return hotelContrato;
+	}
+	public void setHotelContrato(HotelVO hotelContrato) {
+		this.hotelContrato = hotelContrato;
+	}
+	public HotelVO getHotelVendedor() {
+		return hotelVendedor;
+	}
+	public void setHotelVendedor(HotelVO hotelVendedor) {
+		this.hotelVendedor = hotelVendedor;
+	}
 
-
+	
 	
 }
