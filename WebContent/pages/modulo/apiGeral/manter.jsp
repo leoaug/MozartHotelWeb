@@ -2,6 +2,9 @@
 <%@taglib uri="http://marcioduques.com/duquesLib" prefix="duques"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 
+<link rel="stylesheet" type="text/css" href="js/autocomplete/jquery.autocomplete.css" />
+<script src="js/autocomplete/jquery.autocomplete.js" type='text/javascript'></script>
+
 <script type="text/javascript">
 
 
@@ -75,6 +78,33 @@
 		
 		
 	}
+
+	$(document).ready(function() {
+		$("#nomeEmpresaSite").autocomplete("${sessionScope.URL_BASE}app/ajax/ajax!consultarEmpresaPorRazaoSocialLike");
+	});
+
+	
+	function consultarEmpresaPorRazaoSocialLike(elemento) {
+
+		
+		$("#nomeEmpresaSite").autocomplete("${sessionScope.URL_BASE}app/ajax/ajax!consultarEmpresaPorRazaoSocialLike?OBJ_VALUE="+elemento.value);
+
+		
+		/*
+		$.ajax({
+			type : "GET",
+			url : "${sessionScope.URL_BASE}app/ajax/ajax!getTipoLancamentoReceitaERecebimento?OBJ_VALUE="+elemento.value,
+			success : function(retorno) {
+					
+				$("#nomeEmpresaSite").val (retorno);
+				
+			},
+			error : function(retorno) {
+				alert("Erro ao gerar token!!");
+			}
+		});
+		*/
+	}
 	
 
 	function gravar() {
@@ -105,13 +135,13 @@
         <div class="divCadastro" style="overflow:auto;" >
               
               <!-- API - Geral -->
-              <div class="divGrupo" style="height:120px;">
+              <div class="divGrupo" style="height:160px;">
 	                <div class="divGrupoTitulo">API - Geral</div>
 	
 	
 	                <div class="divLinhaCadastro">
-	                    <div class="divItemGrupo" style="width:450px;" >
-	                    		<p style="width:80px;">Nome:</p> 
+	                    <div class="divItemGrupo" style="width:500px;" >
+	                    		<p style="width:150px;">Nome:</p> 
 	                        	<s:textfield  name="entidade.nome" 
 	                        				  cssStyle="background-color: #C3C3C3;color: black;" 
 	                        				  value="GERAL" 
@@ -124,9 +154,17 @@
 	
 	
 	                <div class="divLinhaCadastro">
-	                      <div class="divItemGrupo" style="width:450px;" >  
-	                       		<p style="width:80px;">Empresa Site:</p> 
-	                        	<s:textfield  name="entidade.nome"  id="nome" size="35"  onkeypress="toUpperCase(this)" />
+	                      <div class="divItemGrupo" style="width:500px;" >  
+	                       		<p style="width:150px;">Empresa Site:</p> 
+	                        	
+	                        	  
+	                        	<s:textfield name="entidade.empresa.razaoSocial"  placeholder="Ex: Digitar Nome ou CNPJ"
+	                        				 id="nomeEmpresaSite" 
+	                        				 size="35"  
+	                        				 onkeypress="toUpperCase(this);" 
+	                        				 />
+	                        		 			 
+	                        				 
 	                      </div> 
 	                       <div class="divItemGrupo" style="width:300px;">
 		                        <p style="width:80px;">Ativo:</p>
@@ -142,15 +180,15 @@
 	                </div>
 	
 					 <div class="divLinhaCadastro">
-	                    <div class="divItemGrupo" style="width:450px;" >
-	                    		<p style="width:80px;">Url:</p> 
-	                        	<s:textfield  name="entidade.url"  size="35" onkeypress="toUpperCase(this)" />
+	                    <div class="divItemGrupo" style="width:500px;" >
+	                    		<p style="width:150px;">Url:</p> 
+	                        	<s:textfield  name="entidade.url"  size="35" onkeypress="toUpperCase(this)" placeholder="Ex: Digitar a url de Acesso" />
 	                    </div>
 	                </div>
 	
 					 <div class="divLinhaCadastro">
-					 		 <div class="divItemGrupo" style="width:450px;" >  
-	                       		<p style="width:80px;">Palavra:</p> 
+					 		 <div class="divItemGrupo" style="width:500px;" >  
+	                       		<p style="width:150px;">Palavra:</p> 
 	                        	<s:textfield  name="entidade.palavra" size="35" onkeypress="toUpperCase(this)" onblur="gerarToken(this)" />
 	                      	</div> 
 	                      	
@@ -172,8 +210,8 @@
 	                <div class="divGrupoTitulo">API - Contrato</div>
 	                
 	                 <div class="divLinhaCadastro">
-	                    <div class="divItemGrupo" style="width:300px;" >
-	                    		<p style="width:80px;">Nome:</p> 
+	                    <div class="divItemGrupo" style="width:500px;" >
+	                    		<p style="width:150px;">Nome:</p> 
 	                        	<s:textfield  name="apiContrato.nome" 
 	                        				  cssStyle="background-color: #C3C3C3;color: black;" 
 	                        				  value="CONTRATO" 
@@ -197,8 +235,8 @@
 	                 </div>
 	                
 	                 <div class="divLinhaCadastro">
-	                    <div class="divItemGrupo" style="width:450px;" >
-	                    		<p style="width:80px;">Nome Fantasia:</p> 	                    		
+	                    <div class="divItemGrupo" style="width:500px;" >
+	                    		<p style="width:150px;">Nome Fantasia:</p> 	                    		
 	                        	<s:select list="listaHoteis" headerKey="0" headerValue="Selecione"
 									  cssStyle="width:300px"  
 									  name="apiContrato.hotel.idHotel"
@@ -248,8 +286,8 @@
 	                <div class="divGrupoTitulo">API - Vendedor</div>
 	                
 	                  <div class="divLinhaCadastro">
-	                    <div class="divItemGrupo" style="width:300px;" >
-	                    		<p style="width:80px;">Nome:</p> 
+	                    <div class="divItemGrupo" style="width:500px;" >
+	                    		<p style="width:150px;">Nome:</p> 
 	                        	<s:textfield  name="apiVendedor.nome" 
 	                        				  cssStyle="background-color: #C3C3C3;color: black;" 
 	                        				  value="VENDEDOR" 
@@ -270,8 +308,8 @@
 	                 </div>
 	                 
 	                  <div class="divLinhaCadastro">
-	                    <div class="divItemGrupo" style="width:450px;" >
-	                    		<p style="width:80px;">Nome Fantasia:</p> 	                    		
+	                    <div class="divItemGrupo" style="width:500px;" >
+	                    		<p style="width:150px;">Nome Fantasia:</p> 	                    		
 	                        	<s:select list="listaHoteis" 
 									  cssStyle="width:300px"  
 									  name="apiVendedor.hotel.idHotel"

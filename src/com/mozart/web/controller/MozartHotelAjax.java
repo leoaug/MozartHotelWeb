@@ -5872,6 +5872,39 @@ public class MozartHotelAjax extends HttpServlet {
 				
 	}
 	
+	public void consultarEmpresaPorRazaoSocialLike(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException,
+			MozartSessionException {
+		try {
+			HotelEJB hotel = (HotelEJB) request.getSession().getAttribute(
+					"HOTEL_SESSION");
+		
+			PrintWriter out = response.getWriter();
+			
+			//String nomeEmpresaOuCnpj = request.getParameter("OBJ_VALUE");
+			String nomeEmpresaOuCnpj = request.getParameter("q");
+
+			
+			if(nomeEmpresaOuCnpj != null && !nomeEmpresaOuCnpj.equals("") && nomeEmpresaOuCnpj.toCharArray().length > 3) {
+
+				EmpresaEJB filtro = new EmpresaEJB();
+				filtro.setRazaoSocial(nomeEmpresaOuCnpj);
+
+				List <EmpresaEJB> lista = EmpresaDelegate.instance().consultarEmpresaPorRazaoSocialLike(filtro);
+
+				for(EmpresaEJB ejb : lista) {
+					out.println(ejb.getRazaoSocialCGC());
+				}
+
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			MozartWebUtil.error(MozartWebUtil.getLogin(request),
+					e.getMessage(), this.log);
+		}
+	}
+	
 	// public void selecionarListaFiscalServico(HttpServletRequest request,
 	// HttpServletResponse response) throws ServletException, IOException {
 	// MozartWebUtil.info(MozartWebUtil.getLogin(request),

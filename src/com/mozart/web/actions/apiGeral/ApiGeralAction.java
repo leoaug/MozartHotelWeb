@@ -4,11 +4,13 @@ import java.util.List;
 import java.util.ArrayList;
 
 import com.mozart.model.delegate.ApiGeralDelegate;
+import com.mozart.model.delegate.EmpresaDelegate;
 import com.mozart.model.delegate.HotelDelegate;
 import com.mozart.model.delegate.TipoLancamentolDelegate;
 import com.mozart.model.ejb.entity.ApiContratoEJB;
 import com.mozart.model.ejb.entity.ApiGeralEJB;
 import com.mozart.model.ejb.entity.ApiVendedorEJB;
+import com.mozart.model.ejb.entity.EmpresaEJB;
 import com.mozart.model.exception.MozartSessionException;
 import com.mozart.model.exception.MozartValidateException;
 import com.mozart.model.util.Criptografia;
@@ -41,6 +43,8 @@ public class ApiGeralAction extends BaseAction{
 	
 	private List <TipoLancamentoVO> listaReceita;
 	private TipoLancamentoVO tipoLancamentoReceita;
+	
+	private List <EmpresaEJB> listaEmpresas;
 	
 	private Long indice;
 
@@ -98,6 +102,8 @@ public class ApiGeralAction extends BaseAction{
 		
 		request.getSession().setAttribute("listaRecebimento", this.listaRecebimento);
 		request.getSession().setAttribute("listaReceita", this.listaReceita);
+		
+		this.listaEmpresas = new ArrayList <EmpresaEJB> ();
 
 		return SUCESSO_FORWARD;
 		
@@ -166,6 +172,7 @@ public class ApiGeralAction extends BaseAction{
 	
 	private void initCombos() throws MozartSessionException {
 
+	
 		/*
 		GrupoEconomicoEJB filtroGE = new GrupoEconomicoEJB();
 		filtroGE.setIdHotel( getIdHoteis()[0] );
@@ -339,7 +346,15 @@ public class ApiGeralAction extends BaseAction{
 	public void setHotelVendedor(HotelVO hotelVendedor) {
 		this.hotelVendedor = hotelVendedor;
 	}
+	public List<EmpresaEJB> getListaEmpresas() {
+		return listaEmpresas;
+	}
+	public void setListaEmpresas(List<EmpresaEJB> listaEmpresas) {
+		this.listaEmpresas = listaEmpresas;
+	}
+	
 
+	
 	
 	
 }
