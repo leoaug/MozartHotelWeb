@@ -49,12 +49,45 @@
 		
 	}
 
+	
+	function selecionarComboReceita(elemento){
+
+		$.ajax({
+			type : "GET",
+			url : "${sessionScope.URL_BASE}app/ajax/ajax!selecionarComboReceita?OBJ_VALUE="+elemento.value,
+			success : function(retorno) {
+					
+				$("#idDivSelectReceita").html(retorno);
+				
+			},
+			error : function(retorno) {
+				alert("Erro ao gerar token!!");
+			}
+		});
+		
+	}
+
+	function selecionarComboRecebimento(elemento){
+
+		$.ajax({
+			type : "GET",
+			url : "${sessionScope.URL_BASE}app/ajax/ajax!selecionarComboRecebimento?OBJ_VALUE="+elemento.value,
+			success : function(retorno) {
+					
+				$("#idDivSelectRecebimento").html(retorno);
+				
+			},
+			error : function(retorno) {
+				alert("Erro ao gerar token!!");
+			}
+		});
+	}
+
+	
 	$(document).ready(function() {
 		$("#nomeEmpresaSite").autocomplete("${sessionScope.URL_BASE}app/ajax/ajax!consultarEmpresaPorRazaoSocialLike");
 	});
 
-	
-	
 
 	function gravar() {
 
@@ -210,27 +243,29 @@
 	                <!-- Sera dinamicamente mudado do nchange getTipoLancamentoReceitaERecebimento() na classe MozartHotelAjax.getTipoLancamentoReceitaERecebimento -->
 	                 <div id="idDivLancamentoReceitaRecebimento" style="height:200px;">
 	                    
-	                    <div class="divLinhaCadastro">
+	                    <div id="idDivSelectReceita" class="divLinhaCadastro">
 	                    	<div class="divItemGrupo" style="width:500px;" >
 	                    		
 	                    		<p style="width:150px;">Tipo Lançamento receita:</p>
-	                    		<s:select list="#session.listaReceita" headerKey="0" headerValue="Selecione"
+	                    		<s:select list="listaReceita" id="idSelectReceita" headerKey="-1" headerValue="Selecione"
 									  cssStyle="width:300px"  
 									  name="apiContrato.idTipoLancamento"
 									  listKey="idTipoLancamento"
-									  listValue="descricaoLancamento" /> 
+									  listValue="descricaoLancamento" 
+									  onchange="selecionarComboReceita(this)"/> 
 	                    	</div>
 	                 	 </div>
-	                 	 <div class="divLinhaCadastro">
+	                 	 <div id="idDivSelectRecebimento" class="divLinhaCadastro">
 		                    <div class="divItemGrupo" style="width:500px;" >
 		                    	
 		                    	  
 		                    	<p style="width:150px;">Tipo Lançamento recebimento </p>
-		                    	<s:select list="#session.listaRecebimento" headerKey="0" headerValue="Selecione"
+		                    	<s:select list="listaRecebimento" id="idSelectRecebimento" headerKey="-1" headerValue="Selecione"
 										  cssStyle="width:300px"  
 										  name="apiContrato.idTipoLancamentoCk"
 										  listKey="idTipoLancamentoCk"
-										  listValue="descricaoLancamento" /> 
+										  listValue="descricaoLancamento" 
+										  onchange="selecionarComboRecebimento(this)"/> 
 								
 		                    	
 		                    </div>
@@ -274,8 +309,7 @@
 									  cssStyle="width:300px"  
 									  name="apiVendedor.hotel.idHotel"
 									  listKey="idHotel"
-									  listValue="nomeFantasia" 
-									  onchange="getTipoLancamentoReceitaERecebimento(this)" /> 
+									  listValue="nomeFantasia" /> 
 	                        	
 	                    </div>
 	                </div>
@@ -288,6 +322,7 @@
         <div class="divCadastroBotoes">
                <duques:botao label="Voltar" imagem="imagens/iconic/png/arrow-thick-left-3x.png" onClick="cancelar()" />
                <duques:botao label="Gravar" imagem="imagens/iconic/png/check-4x.png" onClick="gravar()" />
+              
         </div>
   </div>
 

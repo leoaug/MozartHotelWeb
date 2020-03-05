@@ -79,6 +79,7 @@ import com.mozart.model.ejb.entity.StatusNotaEJB;
 import com.mozart.model.ejb.entity.TarifaEJB;
 import com.mozart.model.ejb.entity.TarifaIdiomaEJB;
 import com.mozart.model.ejb.entity.TipoItemEJB;
+import com.mozart.model.ejb.entity.TipoLancamentoEJB;
 import com.mozart.model.ejb.entity.UsuarioCiRedeEJB;
 import com.mozart.model.ejb.entity.UsuarioConsumoInternoEJB;
 import com.mozart.model.ejb.entity.UsuarioEJB;
@@ -5813,6 +5814,61 @@ public class MozartHotelAjax extends HttpServlet {
 				
 	}
 
+	public void selecionarComboReceita(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException,
+			MozartSessionException {
+		
+		
+		try {
+			//HotelEJB hotel = (HotelEJB) request.getSession().getAttribute(
+					//"HOTEL_SESSION");
+		
+			String valor = request.getParameter("OBJ_VALUE");
+					
+			
+			PrintWriter out = response.getWriter();
+			StringBuilder builder = new StringBuilder();
+			
+			this.montarComboReceita(builder, (List<TipoLancamentoVO>) request.getSession().getAttribute("listaReceita"),Long.parseLong(valor));
+			
+			 out.println(builder.toString());
+		
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			MozartWebUtil.error(MozartWebUtil.getLogin(request),
+					e.getMessage(), this.log);
+		}
+	}
+	
+	public void selecionarComboRecebimento(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException,
+			MozartSessionException {
+		try {
+		
+			String valor = request.getParameter("OBJ_VALUE");
+					
+			
+			PrintWriter out = response.getWriter();
+			StringBuilder builder = new StringBuilder();
+			
+			Long id = (long) 0;
+			
+			if(valor != null && !valor.equals("null")) {
+				id = Long.parseLong(valor);
+			}
+			
+			this.montaComboRecebimento(builder, (List<TipoLancamentoVO>) request.getSession().getAttribute("listaRecebimento"),id);
+			
+			 out.println(builder.toString());
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+			MozartWebUtil.error(MozartWebUtil.getLogin(request),
+					e.getMessage(), this.log);
+		}
+	}	
+	
 	public void getTipoLancamentoReceitaERecebimento(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException,
 			MozartSessionException {
@@ -5831,42 +5887,31 @@ public class MozartHotelAjax extends HttpServlet {
 			
 			
 			List <TipoLancamentoVO> listaRecebimento = TipoLancamentolDelegate.instance().consultarTipoLancamentoRecebimento(filtro);
+			request.getSession().setAttribute("listaRecebimento", listaRecebimento);
+			
 			List <TipoLancamentoVO> listaReceita = TipoLancamentolDelegate.instance().consultarTipoLancamentoReceita(filtro);
+			request.getSession().setAttribute("listaReceita", listaReceita);
+
 			
 			PrintWriter out = response.getWriter();
 			StringBuilder builder = new StringBuilder();
 			
+			builder.append("<div id=\"idDivLancamentoReceitaRecebimento\" style=\"height:200px;\">");
 			
-			builder.append("<div id=\"idDivLancamentoReceitaRecebimento\" style=\"height:200px;\">");            
-			builder.append("	<div class=\"divLinhaCadastro\"> ");
-			builder.append("		<div class=\"divItemGrupo\" style=\"width:500px;\" > ");
-			builder.append("			<p style=\"width:150px;\">Tipo Lançamento receita </p>" );
-			builder.append("				<select name=\"apiContrato.idTipoLancamento\" style=\"width:300px\">");
-			builder.append("					<option value=\"0\" >Selecione</option>");
-			for(TipoLancamentoVO voReceita : listaReceita) {
-				String idTipoLancamento = "\"" + voReceita.getIdTipoLancamento() + "\"";
-				builder.append("				<option value="+idTipoLancamento +">"+ voReceita.getDescricaoLancamento() +"</option>");
-			}
-			builder.append("                </select>");
-			builder.append("		</div>");
-			builder.append("	</div>");
-	           
+			
+			this.montarComboReceita(builder,listaReceita, null);
+			
+			
 			builder.append("   <div class=\"divLinhaCadastro\">");			
 			builder.append("	   <div class=\"divItemGrupo\" style=\"width:500px;\" >");  
 			builder.append("			<p style=\"width:150px;\">Tipo Lançamento recebimento </p>" );
-			builder.append("				<select name=\"apiContrato.idTipoLancamentoCk\" style=\"width:300px\">");
-			builder.append("					<option value=\"0\" >Selecione</option>");
-			for(TipoLancamentoVO voRecebimento : listaRecebimento) {
-				String idTipoRecebimento = "\"" + voRecebimento.getIdTipoLancamento() + "\"";
-				builder.append("				<option value="+ idTipoRecebimento+">"+voRecebimento.getDescricaoLancamento()+"</option>");
-			}
-			builder.append("                </select>");
+				this.montaComboRecebimento(builder,listaRecebimento, null);
 			builder.append("		</div>");
-			builder.append("   </div>");  	            		            	
-			builder.append("</div>");    
-           
+			builder.append("   </div>");  	
 			
-            out.write(builder.toString());
+			
+			builder.append("</div>");	
+            out.println(builder.toString());
             
             
 		} catch (Exception e) {
@@ -5878,6 +5923,59 @@ public class MozartHotelAjax extends HttpServlet {
 				
 	}
 	
+	private void montaComboRecebimento(StringBuilder builder, List<TipoLancamentoVO> listaRecebimento,Long idTipoLancamentoRecebimento) {
+		
+		String selected = " ";
+		if(idTipoLancamentoRecebimento == null) {
+			idTipoLancamentoRecebimento = (long) 0;
+		}
+		
+		builder.append("<select name=\"apiContrato.idTipoLancamentoCk\" id=\"idSelectRecebimento\" onchange=\"selecionarComboRecebimento(this)\" style=\"width:300px\">");
+		builder.append("	   <option value=\"-1\" >Selecione</option>");
+		for(TipoLancamentoVO voRecebimento : listaRecebimento) {
+			Long idTipoRecebimento = voRecebimento.getIdTipoLancamento() == null ? 0 : voRecebimento.getIdTipoLancamento() ;
+			
+			String idTipoRecebimentoFormatado = "\"" + idTipoRecebimento.toString() +"\"";
+			
+			Long idTipoLancamentoRecebimentoVO = voRecebimento.getIdTipoLancamento() == null ? 0 : voRecebimento.getIdTipoLancamento();
+			if(idTipoLancamentoRecebimento != null && idTipoLancamentoRecebimento.equals(idTipoLancamentoRecebimentoVO)) {
+				selected = " selected=\"selected\"";
+			} else {
+				selected = " ";
+			}
+			
+			builder.append("	<option value="+ idTipoRecebimentoFormatado + " " +selected +">"+voRecebimento.getDescricaoLancamento()+"</option>");
+		}
+		builder.append("</select>");
+		 
+		
+	}
+
+	private void montarComboReceita(StringBuilder builder,List <TipoLancamentoVO> listaReceita,Long idTipoLancamentoReceita) {
+		
+		String selected = " ";
+		
+		builder.append("	<div id=\"idDivSelectReceita\" class=\"divLinhaCadastro\"> ");
+		builder.append("		<div class=\"divItemGrupo\" style=\"width:500px;\" > ");
+		builder.append("			<p style=\"width:150px;\">Tipo Lançamento receita </p>" );
+		
+		builder.append("				<select name=\"apiContrato.idTipoLancamento\" onchange=\"selecionarComboReceita(this)\" id=\"idSelectReceita\" style=\"width:300px\">");
+		builder.append("					<option value=\"-1\" >Selecione</option>");
+		for(TipoLancamentoVO voReceita : listaReceita) {
+			String idTipoLancamento = "\"" + voReceita.getIdTipoLancamento() + "\"";
+			if(idTipoLancamentoReceita != null && idTipoLancamentoReceita.equals(voReceita.getIdTipoLancamento())) {
+				selected = " selected=\"selected\"";
+			} else {
+				selected = " ";
+			}
+			builder.append("				<option value="+idTipoLancamento + " " +selected +">"+ voReceita.getDescricaoLancamento() +"</option>");
+		}
+		builder.append("				</select>");
+		builder.append("	    </div>");
+		builder.append("   </div>");	
+		
+	}
+
 	public void consultarEmpresaPorRazaoSocialLike(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException,
 			MozartSessionException {
@@ -5885,9 +5983,6 @@ public class MozartHotelAjax extends HttpServlet {
 			HotelEJB hotel = (HotelEJB) request.getSession().getAttribute(
 					"HOTEL_SESSION");
 		
-			//response.setContentType("application/json");
-			//response.setCharacterEncoding("iso-8859-1");
-			
 			PrintWriter out = response.getWriter();
 			
 			//parametro do autocomplete do jquery (padrão da arquitetura)

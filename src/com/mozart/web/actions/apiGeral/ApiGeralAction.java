@@ -99,8 +99,8 @@ public class ApiGeralAction extends BaseAction{
 			
 			if(entidade.getIdApiGeral() != null && 
 			  apiContrato.getHotel().getIdHotel() != null && 
-			  apiContrato.getIdTipoLancamento() != null &&
-			  apiContrato.getIdTipoLancamentoCk() != null) {
+			  (apiContrato.getIdTipoLancamento() != null && !apiContrato.getIdTipoLancamento().equals(0)) &&
+			  (apiContrato.getIdTipoLancamentoCk() != null && !apiContrato.getIdTipoLancamentoCk().equals(0))) {
 				
 				apiContrato.setApiGeral(entidade);
 				apiContrato.setNome("CONTRATO");
