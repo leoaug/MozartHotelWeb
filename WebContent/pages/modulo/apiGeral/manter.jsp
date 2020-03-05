@@ -80,41 +80,42 @@
 	}
 
 	$(document).ready(function() {
-		$("#nomeEmpresaSite").autocomplete("${sessionScope.URL_BASE}app/ajax/ajax!consultarEmpresaPorRazaoSocialLike");
+		//$("#nomeEmpresaSite").autocomplete("${sessionScope.URL_BASE}app/ajax/ajax!consultarEmpresaPorRazaoSocialLike");
+
+		
+		$("#nomeEmpresaSite").autocomplete("${sessionScope.URL_BASE}app/ajax/ajax!consultarEmpresaPorRazaoSocialLike", {
+			width: 240,
+			autoFocus: true, 			
+			focus: function(event, ui){ 
+				$('#nomeEmpresaSite').val(ui.item.razaoSocialCGC);
+	            $('#idEmpresaSite').val(ui.item.idEmpresa);
+		        //return false;
+		    },
+			select: function(event, ui) {
+
+					alert("razaoSocialCGC : " + ui.item.razaoSocialCGC);
+					alert("idEmpresa : " + ui.item.idEmpresa);
+					
+	            	$('#nomeEmpresaSite').val(ui.item.razaoSocialCGC);
+		            $('#idEmpresaSite').val(ui.item.idEmpresa);
+		            //return false;
+		     },
+			selectFirst: true
+		});
+		
 	});
 
 	
-	function consultarEmpresaPorRazaoSocialLike(elemento) {
-
-		
-		$("#nomeEmpresaSite").autocomplete("${sessionScope.URL_BASE}app/ajax/ajax!consultarEmpresaPorRazaoSocialLike?OBJ_VALUE="+elemento.value);
-
-		
-		/*
-		$.ajax({
-			type : "GET",
-			url : "${sessionScope.URL_BASE}app/ajax/ajax!getTipoLancamentoReceitaERecebimento?OBJ_VALUE="+elemento.value,
-			success : function(retorno) {
-					
-				$("#nomeEmpresaSite").val (retorno);
-				
-			},
-			error : function(retorno) {
-				alert("Erro ao gerar token!!");
-			}
-		});
-		*/
-	}
 	
 
 	function gravar() {
 
-		/*
-		if ( $("input[name='empresaRede.deadLine']").val() == '') {
-			alerta('Campo "Dead Line" é obrigatório.');
+		
+		if ( $("input[name='entidade.empresa.razaoSocial']").val() == '') {
+			alerta('Campo "Empresa Site" é obrigatório.');
 			return false;
 		}
-		*/
+		
 
 		submitForm(document.forms[0]);
 
@@ -158,12 +159,12 @@
 	                       		<p style="width:150px;">Empresa Site:</p> 
 	                        	
 	                        	  
-	                        	<s:textfield name="entidade.empresa.razaoSocial"  placeholder="Ex: Digitar Nome ou CNPJ"
+	                        	<s:textfield name="razaoSocial"  placeholder="Ex: Digitar Nome ou CNPJ"
 	                        				 id="nomeEmpresaSite" 
 	                        				 size="35"  
 	                        				 onkeypress="toUpperCase(this);" 
 	                        				 />
-	                        		 			 
+	                        	<s:hidden id="idEmpresaSite" name="idEmpresa"></s:hidden>	 			 
 	                        				 
 	                      </div> 
 	                       <div class="divItemGrupo" style="width:300px;">
