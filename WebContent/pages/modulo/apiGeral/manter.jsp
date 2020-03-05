@@ -14,36 +14,6 @@
 		submitForm(vForm);
 	}
 
-	function validarEmpresa(cnpj) {
-
-		if (cnpj != '' && cnpj != null) {
-
-			var cnpjcpfformatado = cnpj.replace(/[./-]/g,'');
-			if ($("#opcoes").val() == '1'){
-				$("input[name='entidade.cgc']").val(cnpjcpfformatado);
-				$("input[name='empresaCpf']").val("");
-			}
-			else if ($("#opcoes").val() == '2')
-			{
-				$("input[name='entidade.cgc']").val(cnpjcpfformatado);
-				$("input[name='empresaCnpj']").val("");
-			}
-			
-			if ($("#opcoes").val() == '1' && !validarCNPJ(cnpjcpfformatado) ){
-				alerta('Campo "CNPJ" é inválido.');
-				return false;
-			}
-			else if ($("#opcoes").val() == '2' && !validarCPF(cnpjcpfformatado) ){
-				alerta('Campo "CPF" é inválido.');
-				return false;
-			}
-
-			vForm = document.forms[0];
-			vForm.action = '<s:url action="manterEmpresa!validarEmpresa.action" namespace="/app/empresa" />';
-			submitForm(vForm);
-		}
-
-	}
 
 	function gerarToken(elemento){
 
@@ -80,29 +50,7 @@
 	}
 
 	$(document).ready(function() {
-		//$("#nomeEmpresaSite").autocomplete("${sessionScope.URL_BASE}app/ajax/ajax!consultarEmpresaPorRazaoSocialLike");
-
-		
-		$("#nomeEmpresaSite").autocomplete("${sessionScope.URL_BASE}app/ajax/ajax!consultarEmpresaPorRazaoSocialLike", {
-			width: 240,
-			autoFocus: true, 			
-			focus: function(event, ui){ 
-				$('#nomeEmpresaSite').val(ui.item.razaoSocialCGC);
-	            $('#idEmpresaSite').val(ui.item.idEmpresa);
-		        //return false;
-		    },
-			select: function(event, ui) {
-
-					alert("razaoSocialCGC : " + ui.item.razaoSocialCGC);
-					alert("idEmpresa : " + ui.item.idEmpresa);
-					
-	            	$('#nomeEmpresaSite').val(ui.item.razaoSocialCGC);
-		            $('#idEmpresaSite').val(ui.item.idEmpresa);
-		            //return false;
-		     },
-			selectFirst: true
-		});
-		
+		$("#nomeEmpresaSite").autocomplete("${sessionScope.URL_BASE}app/ajax/ajax!consultarEmpresaPorRazaoSocialLike");
 	});
 
 	
@@ -111,13 +59,28 @@
 	function gravar() {
 
 		
-		if ( $("input[name='entidade.empresa.razaoSocial']").val() == '') {
+		if ( $("input[name='entidade.empresa.razaoSocialCGC']").val() == '') {
 			alerta('Campo "Empresa Site" é obrigatório.');
 			return false;
 		}
+		if ( $("input[name='entidade.nome']").val() == '') {
+			alerta('Campo "Nome" é obrigatório.');
+			return false;
+		}
+		if ( $("input[name='entidade.token']").val() == '') {
+			alerta('Campo "Token" é obrigatório.');
+			return false;
+		}
+		if ( $("input[name='entidade.url']").val() == '') {
+			alerta('Campo "Url" é obrigatório.');
+			return false;
+		}
+		
 		
 
-		submitForm(document.forms[0]);
+		vForm = document.forms[0];
+		vForm.action = '<s:url action="manterApiGeral!gravarApiGeral.action" namespace="/app/sistema" />';
+		submitForm(vForm);
 
 	}
 
@@ -158,13 +121,10 @@
 	                      <div class="divItemGrupo" style="width:500px;" >  
 	                       		<p style="width:150px;">Empresa Site:</p> 
 	                        	
-	                        	  
-	                        	<s:textfield name="razaoSocial"  placeholder="Ex: Digitar Nome ou CNPJ"
-	                        				 id="nomeEmpresaSite" 
-	                        				 size="35"  
-	                        				 onkeypress="toUpperCase(this);" 
+	                        	<s:textfield name="entidade.empresa.razaoSocialCGC" placeholder="Ex: Digitar Nome ou CNPJ"
+	                        				 id="nomeEmpresaSite"  
+	                        				 size="35"   
 	                        				 />
-	                        	<s:hidden id="idEmpresaSite" name="idEmpresa"></s:hidden>	 			 
 	                        				 
 	                      </div> 
 	                       <div class="divItemGrupo" style="width:300px;">
@@ -190,17 +150,16 @@
 					 <div class="divLinhaCadastro">
 					 		 <div class="divItemGrupo" style="width:500px;" >  
 	                       		<p style="width:150px;">Palavra:</p> 
-	                        	<s:textfield  name="entidade.palavra" size="35" onkeypress="toUpperCase(this)" onblur="gerarToken(this)" />
+	                        	<s:textfield  name="entidade.palavra" size="35" onblur="gerarToken(this)" />
 	                      	</div> 
 	                      	
-	                      	 <div class="divItemGrupo" style="width:300px;" >  
+	                      	 <div class="divItemGrupo" style="width:450px;" >  
 	                       		<p style="width:80px;">Token Gerado:</p> 
 	                        	<s:textfield  name="entidade.token" 
 	                        				  id="idTokenEntidade" 
 	                        				  cssStyle="background-color: #C3C3C3;color: black;"
 	                        				  readonly="true"  
-	                        				  size="35"  
-	                        				  onkeypress="toUpperCase(this)" />
+	                        				  size="45" />
 	                      	</div> 
 					 </div>
 	
