@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<package name="alfa" extends="struts-default" namespace="/app/alfa">
+
+		<action name="pesquisar" class="com.mozart.web.actions.AlfaAction">
+			<result name="sucesso">/pages/modulo/alfa/pesquisarAlfa.jsp</result>
+		</action>
+
+		<action name="pesquisarConsolidada" class="com.mozart.web.actions.AlfaAction">
+			<result name="sucesso">/pages/modulo/alfa/pesquisarAlfaConsolidado.jsp
+			</result>
+		</action>
+
+		<action name="manter" class="com.mozart.web.actions.AlfaAction">
+			<result name="sucesso">/pages/modulo/alfa/pesquisarAlfaConsolidado.jsp
+			</result>
+		</action>
+
+	</package>
+</struts>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+ <package name="operacional" extends="struts-default" namespace="/app/operacional" >
+	
+		<!-- Dados do Apartamento -->
+	
+	    <action name="pesquisarApartamento" class="com.mozart.web.actions.operacional.ApartamentoAction" >
+                 
+                 <result name="sucesso">/pages/modulo/operacional/apartamento/pesquisarApartamento.jsp</result>
+                 
+	    </action>
+        
+        <action name="manterApartamento" class="com.mozart.web.actions.operacional.ApartamentoAction" >
+                 
+                 <result name="sucesso">/pages/modulo/operacional/apartamento/manterApartamento.jsp</result>
+                 
+	    </action>
+	
+	    
+    	<!-- Dados do TipoApartamento -->
+	
+	    <action name="pesquisarTipoApartamento" class="com.mozart.web.actions.operacional.TipoApartamentoAction" >
+                 <result name="sucesso">/pages/modulo/operacional/tipoApartamento/pesquisarTipoApartamento.jsp</result>
+	    </action>
+        
+        <action name="manterTipoApartamento" class="com.mozart.web.actions.operacional.TipoApartamentoAction" >
+                 <result name="sucesso">/pages/modulo/operacional/tipoApartamento/manterTipoApartamento.jsp</result>
+	    </action>
+	
+	
+    	<!-- Dados da camareira -->
+	
+	    <action name="pesquisarCamareira" class="com.mozart.web.actions.operacional.CamareiraAction" >
+                 <result name="sucesso">/pages/modulo/operacional/camareira/pesquisar.jsp</result>
+	    </action>
+        
+        <action name="manterCamareira" class="com.mozart.web.actions.operacional.CamareiraAction" >
+                 <result name="sucesso">/pages/modulo/operacional/camareira/manter.jsp</result>
+	    </action>
+	
+	
+    	<!-- Dados da status apartamento -->
+	
+	    <action name="manterStatusApartamento" class="com.mozart.web.actions.operacional.StatusApartamentoAction" >
+                 <result name="sucesso">/pages/modulo/operacional/statusApartamento/manter.jsp</result>
+	    </action>
+
+		<!-- Dados da configuracao da nota fiscal -->
+	
+	    <action name="manterConfiguracaoNotaFiscal" class="com.mozart.web.actions.operacional.ConfiguracaoNotaFiscalAction" >
+                 <result name="sucesso">/pages/modulo/operacional/notaFiscal/manter.jsp</result>
+	    </action>
+
+		<!-- Dados do objeto -->
+	
+	    <action name="manterObjeto" class="com.mozart.web.actions.operacional.ObjetoAction" >
+                 <result name="sucesso">/pages/modulo/operacional/objetos/manter.jsp</result>
+                 <result name="pesquisa">/pages/modulo/operacional/objetos/pesquisar.jsp</result>
+	    </action>
+
+	    <action name="pesquisarObjeto" class="com.mozart.web.actions.operacional.ObjetoAction" >
+			<result name="sucesso">/pages/modulo/operacional/objetos/pesquisar.jsp</result>	    
+		</action>
+    	
+    	
+    	<!-- Dados Garçon -->
+	
+	    <action name="pesquisarGarcon" class="com.mozart.web.actions.operacional.GarconAction" >
+                 <result name="sucesso">/pages/modulo/operacional/garcon/pesquisar.jsp</result>
+	    </action>
+        
+        <action name="manterGarcon" class="com.mozart.web.actions.operacional.GarconAction" >
+                 <result name="sucesso">/pages/modulo/operacional/garcon/manter.jsp</result>
+	    </action>
+	
+		<!-- Dados Tipo Refeição -->
+	
+	    <action name="pesquisarTipoRefeicao" class="com.mozart.web.actions.operacional.TipoRefeicaoAction" >
+                 <result name="sucesso">/pages/modulo/operacional/tipoRefeicao/pesquisar.jsp</result>
+	    </action>
+        
+        <action name="manterTipoRefeicao" class="com.mozart.web.actions.operacional.TipoRefeicaoAction" >
+                 <result name="sucesso">/pages/modulo/operacional/tipoRefeicao/manter.jsp</result>
+	    </action>
+	    
+	    <!-- Dados Mesa -->
+	
+	    <action name="pesquisarMesa" class="com.mozart.web.actions.operacional.MesaAction" >
+                 <result name="sucesso">/pages/modulo/operacional/mesa/pesquisar.jsp</result>
+	    </action>
+        
+        <action name="manterMesa" class="com.mozart.web.actions.operacional.MesaAction" >
+                 <result name="sucesso">/pages/modulo/operacional/mesa/manter.jsp</result>
+	    </action>
+	    
+	    <!-- Dados da Reserva condições -->
+	    <action name="manterReservaCondicoes" class="com.mozart.web.actions.operacional.ReservaCondicoesAction" >
+                 <result name="sucesso">/pages/modulo/operacional/reservaCondicoes/manter.jsp</result>
+        </action>
+	    
+	    <!-- Dados Ponto Venda -->
+	
+	    <action name="pesquisarPontoVenda" class="com.mozart.web.actions.operacional.PontoVendaAction" >
+                 <result name="sucesso">/pages/modulo/operacional/pontoVenda/pesquisar.jsp</result>
+	    </action>
+        
+        <action name="manterPontoVenda" class="com.mozart.web.actions.operacional.PontoVendaAction" >
+                 <result name="sucesso">/pages/modulo/operacional/pontoVenda/manter.jsp</result>
+	    </action>
+	    
+	    <action name="encerrarPontoVenda" class="com.mozart.web.actions.operacional.PontoVendaAction" >
+                 <result name="sucesso">/pages/modulo/operacional/pontoVenda/encerrar.jsp</result>
+	    </action>
+	    
+	    
+	    <!-- Dados Ponto Venda -->
+	
+	    <action name="pesquisarConfigFnrh" class="com.mozart.web.actions.operacional.ConfigFnrhAction" >
+                 <result name="sucesso">/pages/modulo/operacional/configFnrh/pesquisar.jsp</result>
+	    </action>
+        
+        <action name="manterConfigFnrh" class="com.mozart.web.actions.operacional.ConfigFnrhAction" >
+                 <result name="sucesso">/pages/modulo/operacional/configFnrh/manter.jsp</result>
+	    </action>
+	    
+	    <!-- Dados Tipo Item -->
+	
+	    <action name="pesquisarTipoItem" class="com.mozart.web.actions.operacional.TipoItemAction" >
+                 <result name="sucesso">/pages/modulo/operacional/tipoItem/pesquisar.jsp</result>
+	    </action>
+        
+        <action name="manterTipoItem" class="com.mozart.web.actions.operacional.TipoItemAction" >
+                 <result name="sucesso">/pages/modulo/operacional/tipoItem/manter.jsp</result>
+	    </action>
+            
+        <!-- Dados Unidade Estoque-->
+	
+	    <action name="pesquisarUnidadeEstoque" class="com.mozart.web.actions.operacional.UnidadeEstoqueAction" >
+                 <result name="sucesso">/pages/modulo/operacional/unidadeEstoque/pesquisar.jsp</result>
+	    </action>
+        
+        <action name="manterUnidadeEstoque" class="com.mozart.web.actions.operacional.UnidadeEstoqueAction" >
+                 <result name="sucesso">/pages/modulo/operacional/unidadeEstoque/manter.jsp</result>
+	    </action> 
+            
+            
+    </package>
+</struts>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+ <package name="financeiro" extends="struts-default" namespace="/app/financeiro" >
+	
+		<!-- Dados do Faturamento -->
+	    <action name="pesquisarFaturamento" class="com.mozart.web.actions.financeiro.FaturamentoAction" method="prepararPesquisa" >
+                 <result name="sucesso">/pages/modulo/financeiro/faturamento/pesquisar.jsp</result>
+	    </action>
+
+	    <action name="manterFaturamento" class="com.mozart.web.actions.financeiro.FaturamentoAction" >
+                 <result name="sucesso">/pages/modulo/financeiro/faturamento/manter.jsp</result>
+                 <result name="pesquisa">/pages/modulo/financeiro/faturamento/pesquisar.jsp</result>
+	    </action>
+
+	    <action name="encerrarFaturamento" class="com.mozart.web.actions.financeiro.FaturamentoAction" >
+                 <result name="sucesso">/pages/modulo/financeiro/faturamento/encerrar.jsp</result>
+                 <result name="pesquisa">/pages/modulo/financeiro/faturamento/pesquisar.jsp</result>
+	    </action>
+
+	    <action name="parcelarFaturamento" class="com.mozart.web.actions.financeiro.FaturamentoAction" >
+                 <result name="sucesso">/pages/modulo/financeiro/faturamento/parcelar.jsp</result>
+                 <result name="pesquisa">/pages/modulo/financeiro/faturamento/pesquisar.jsp</result>
+	    </action>
+
+	    <action name="gerarDuplicata" class="com.mozart.web.actions.financeiro.FaturamentoAction" >
+                 <result name="sucesso">/pages/modulo/financeiro/faturamento/gerar.jsp</result>
+	    </action>
+
+	    <action name="relatorioFaturamento" class="com.mozart.web.actions.financeiro.FaturamentoAction" >
+                 <result name="sucesso">/pages/modulo/financeiro/faturamento/relatorio.jsp</result>
+	    </action>
+	    
+		<!-- Dados do Contas a receber -->
+	    <action name="pesquisarContasReceber" class="com.mozart.web.actions.financeiro.ContasReceberAction" method="prepararPesquisa" >
+                 <result name="sucesso">/pages/modulo/financeiro/contasReceber/pesquisar.jsp</result>
+	    </action>
+
+	    <action name="manterContasReceber" class="com.mozart.web.actions.financeiro.ContasReceberAction" >
+                 <result name="sucesso">/pages/modulo/financeiro/contasReceber/manter.jsp</result>
+                 <result name="pesquisa" type="redirectAction">/pesquisarContasReceber!prepararPesquisa.action</result>
+	    </action>
+
+	    <action name="relatorioContasReceber" class="com.mozart.web.actions.financeiro.ContasReceberAction" >
+                 <result name="sucesso">/pages/modulo/financeiro/contasReceber/relatorio.jsp</result>
+	    </action>
+	    
+	    <action name="encerrarContasReceber" class="com.mozart.web.actions.financeiro.ContasReceberAction" >
+                 <result name="sucesso">/pages/modulo/financeiro/contasReceber/encerrar.jsp</result>
+                 <result name="pesquisa">/pages/modulo/financeiro/contasReceber/pesquisar.jsp</result>
+	    </action>
+	    <action name="receberContasReceber" class="com.mozart.web.actions.financeiro.ContasReceberAction" >
+                 <result name="sucesso">/pages/modulo/financeiro/contasReceber/receber.jsp</result>
+                 <result name="pesquisa" type="redirectAction">/pesquisarContasReceber!prepararPesquisa.action</result>
+	    </action>
+
+
+		<!-- Dados do Contas a pagar -->
+	    <action name="pesquisarContasPagar" class="com.mozart.web.actions.financeiro.ContasPagarAction" method="prepararPesquisa" >
+                 <result name="sucesso">/pages/modulo/financeiro/contasPagar/pesquisar.jsp</result>
+	    </action>
+
+	    <action name="manterContasPagar" class="com.mozart.web.actions.financeiro.ContasPagarAction" >
+                 <result name="sucesso">/pages/modulo/financeiro/contasPagar/manter.jsp</result>
+                 <result name="pesquisa" type="redirectAction">/pesquisarContasPagar!prepararPesquisa.action</result>
+	    </action>
+	    
+	    <action name="estornarContasPagar" class="com.mozart.web.actions.financeiro.ContasPagarAction" >
+                 <result name="sucesso">/pages/modulo/financeiro/contasPagar/manter.jsp</result>
+                 <result name="pesquisa">/pages/modulo/financeiro/contasPagar/pesquisar.jsp</result>
+	    </action>
+
+	    <action name="relatorioContasPagar" class="com.mozart.web.actions.financeiro.ContasPagarAction" >
+                 <result name="sucesso">/pages/modulo/financeiro/contasPagar/relatorio.jsp</result>
+	    </action>
+	    
+	    <action name="encerrarContasPagar" class="com.mozart.web.actions.financeiro.ContasPagarAction" >
+                 <result name="sucesso">/pages/modulo/financeiro/contasPagar/encerrar.jsp</result>
+                 <result name="pesquisa">/pages/modulo/financeiro/contasPagar/pesquisar.jsp</result>
+	    </action>
+
+	    <action name="include" class="com.mozart.web.actions.financeiro.ContasPagarAction" >
+                 <result name="sucesso">/pages/modulo/financeiro/contasPagar/include/manterLancamento.jsp</result>
+	    </action>
+	    
+ 		<action name="pagarContasPagar" class="com.mozart.web.actions.financeiro.ContasPagarAction" >
+                 <result name="sucesso">/pages/modulo/financeiro/contasPagar/pagar.jsp</result>
+                 <result name="pesquisa" type="redirectAction">/pesquisarContasPagar!prepararPesquisa.action</result>
+	    </action>
+	    <action name="parcelarContasPagar" class="com.mozart.web.actions.financeiro.ContasPagarAction" >
+                 <result name="sucesso">/pages/modulo/financeiro/contasPagar/parcelar.jsp</result>
+                 <result name="pesquisa" type="redirectAction">/pesquisarContasPagar!prepararPesquisa.action</result>
+	    </action>
+	    
+		<action name="documentoContasPagar" class="com.mozart.web.actions.financeiro.ContasPagarAction">
+				<result name="success" type="stream">
+					<param name="contentType">application/octet-stream</param>
+					<param name="inputName">documentoStream</param>
+<!-- 					<param name="contentDisposition">attachment;filename="fileABC.txt"</param> -->
+					<param name="bufferSize">1024</param>
+				</result>
+		</action>
+
+	    <action name="pesquisarContasPagarComissao" class="com.mozart.web.actions.financeiro.ContasPagarComissaoAction" method="prepararPesquisa" >
+                 <result name="sucesso">/pages/modulo/financeiro/contasPagarComissao/pesquisar.jsp</result>
+	    </action>
+
+ 		<action name="gerarContasPagarComissao" class="com.mozart.web.actions.financeiro.ContasPagarComissaoAction" >
+                 <result name="sucesso">/pages/modulo/financeiro/contasPagarComissao/gerar.jsp</result>
+                 <result name="pesquisa" type="redirectAction">/pesquisarContasPagarComissao!prepararPesquisa.action</result>
+	    </action>
+	    
+ 		<action name="unificarContasPagarComissao" class="com.mozart.web.actions.financeiro.ContasPagarComissaoAction" >
+                 <result name="sucesso">/pages/modulo/financeiro/contasPagarComissao/gerar.jsp</result>
+                 <result name="pesquisa" type="redirectAction">/pesquisarContasPagarComissao!prepararPesquisa.action</result>
+	    </action>
+	    
+	    <action name="relatorioContasPagarComissao" class="com.mozart.web.actions.financeiro.ContasPagarComissaoAction" >
+                 <result name="sucesso">/pages/modulo/financeiro/contasPagarComissao/relatorio.jsp</result>
+	    </action>
+		<!-- Dados da tesouraria -->
+	    <action name="pesquisarTesouraria" class="com.mozart.web.actions.financeiro.TesourariaAction" method="prepararPesquisa" >
+                 <result name="sucesso">/pages/modulo/financeiro/tesouraria/pesquisar.jsp</result>
+	    </action>
+
+	    <action name="manterTesouraria" class="com.mozart.web.actions.financeiro.TesourariaAction" >
+                 <result name="sucesso">/pages/modulo/financeiro/tesouraria/manter.jsp</result>
+                 <result name="pesquisa" type="redirectAction">/pesquisarTesouraria!prepararPesquisa.action</result>
+	    </action>
+
+	    <action name="relatorioTesouraria" class="com.mozart.web.actions.financeiro.TesourariaAction" >
+                 <result name="sucesso">/pages/modulo/financeiro/tesouraria/relatorio.jsp</result>
+	    </action>
+	    
+	    <action name="encerrarTesouraria" class="com.mozart.web.actions.financeiro.TesourariaAction" >
+                 <result name="sucesso">/pages/modulo/financeiro/tesouraria/encerrar.jsp</result>
+                 <result name="pesquisa">/pages/modulo/financeiro/tesouraria/pesquisar.jsp</result>
+	    </action>
+	    
+	    <action name="conciliarTesouraria" class="com.mozart.web.actions.financeiro.TesourariaAction" >
+                 <result name="sucesso">/pages/modulo/financeiro/tesouraria/conciliar.jsp</result>
+                 <result name="pesquisa" type="redirectAction">/pesquisarTesouraria!prepararPesquisa.action</result>
+	    </action>
+	    
+	    <action name="includeTesouraria" class="com.mozart.web.actions.financeiro.TesourariaAction" >
+                 <result name="sucesso">/pages/modulo/financeiro/tesouraria/include/manterLancamento.jsp</result>
+	    </action>
+	    
+    </package>
+</struts>

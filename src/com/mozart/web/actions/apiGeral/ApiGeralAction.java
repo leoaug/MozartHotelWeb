@@ -3,6 +3,7 @@ package com.mozart.web.actions.apiGeral;
 import java.util.List;
 import java.util.ArrayList;
 
+import com.mozart.model.delegate.ApiContratoDelegate;
 import com.mozart.model.delegate.ApiGeralDelegate;
 import com.mozart.model.delegate.EmpresaDelegate;
 import com.mozart.model.delegate.HotelDelegate;
@@ -95,6 +96,17 @@ public class ApiGeralAction extends BaseAction{
 			entidade.setEmpresa(EmpresaDelegate.instance().obterEmpresaPorNomeCnpj(vo));			
 			entidade.setUsuario( getUserSession().getUsuarioEJB() );
 			entidade = ApiGeralDelegate.instance().gravarApiGeral( entidade );
+			
+			if(entidade.getIdApiGeral() != null && 
+			  apiContrato.getHotel().getIdHotel() != null && 
+			  apiContrato.getIdTipoLancamento() != null &&
+			  apiContrato.getIdTipoLancamentoCk() != null) {
+				
+				apiContrato.setApiGeral(entidade);
+				apiContrato.setNome("CONTRATO");
+				
+				ApiContratoDelegate.instance().gravarApiContrato(apiContrato);
+			} 
 			addMensagemSucesso( MSG_SUCESSO );
 			return PESQUISA_FORWARD;
 			

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+ <package name="rede" extends="struts-default" namespace="/app/rede" >
+	
+		<!-- Dados do credito empresa -->
+	    
+	    <action name="pesquisarCreditoEmpresa" class="com.mozart.web.actions.rede.CreditoEmpresaAction" >
+                 <result name="sucesso">/pages/modulo/rede/creditoEmpresa/pesquisar.jsp</result>
+	    </action>
+        <action name="manterCreditoEmpresa" class="com.mozart.web.actions.rede.CreditoEmpresaAction" >
+                 <result name="sucesso">/pages/modulo/rede/creditoEmpresa/manter.jsp</result>
+                 <result name="erro">/pages/modulo/rede/creditoEmpresa/pesquisar.jsp</result>
+	    </action>
+
+
+		<!-- Dados de Moeda-->
+	    
+	    <action name="pesquisarMoeda" class="com.mozart.web.actions.rede.MoedaAction" >
+                 <result name="sucesso">/pages/modulo/rede/moeda/pesquisar.jsp</result>
+	    </action>
+        <action name="manterMoeda" class="com.mozart.web.actions.rede.MoedaAction" >
+                 <result name="sucesso">/pages/modulo/rede/moeda/manter.jsp</result>
+                 <result name="erro">/pages/modulo/rede/moeda/pesquisar.jsp</result>
+	    </action>
+		
+		
+		<!-- Dados de Promotor-->
+	    
+	    <action name="pesquisarPromotor" class="com.mozart.web.actions.rede.PromotorAction" >
+                 <result name="sucesso">/pages/modulo/rede/promotor/pesquisar.jsp</result>
+	    </action>
+        <action name="manterPromotor" class="com.mozart.web.actions.rede.PromotorAction" >
+                 <result name="sucesso">/pages/modulo/rede/promotor/manter.jsp</result>
+                 <result name="erro">/pages/modulo/rede/promotor/pesquisar.jsp</result>
+	    </action>
+		
+		
+		<!-- Dados Tipo Hospede-->
+	    
+	    
+	    <action name="pesquisarTipoHospede" class="com.mozart.web.actions.rede.TipoHospedeAction" >
+                 <result name="sucesso">/pages/modulo/rede/tipoHospede/pesquisar.jsp</result>
+	    </action>
+        <action name="manterTipoHospede" class="com.mozart.web.actions.rede.TipoHospedeAction" >
+                 <result name="sucesso">/pages/modulo/rede/tipoHospede/manter.jsp</result>
+                 <result name="erro">/pages/modulo/rede/tipoHospede/pesquisar.jsp</result>
+	    </action>
+	    
+	    <!-- Dados Grupo De Prato -->
+	    
+	    
+	    <action name="pesquisarGrupoPrato" class="com.mozart.web.actions.rede.GrupoPratoAction" >
+                 <result name="sucesso">/pages/modulo/rede/grupoPrato/pesquisar.jsp</result>
+	    </action>
+        <action name="manterGrupoPrato" class="com.mozart.web.actions.rede.GrupoPratoAction" >
+                 <result name="sucesso">/pages/modulo/rede/grupoPrato/manter.jsp</result>
+                 <result name="erro">/pages/modulo/rede/grupoPrato/pesquisar.jsp</result>
+	    </action>
+	    
+	    <!-- Dados Setor de Patrimonio -->
+	    
+	    
+	    <action name="pesquisarSetorPatrimonio" class="com.mozart.web.actions.rede.SetorPatrimonioAction" >
+                 <result name="sucesso">/pages/modulo/rede/setorPatrimonio/pesquisar.jsp</result>
+	    </action>
+        <action name="manterSetorPatrimonio" class="com.mozart.web.actions.rede.SetorPatrimonioAction" >
+                 <result name="sucesso">/pages/modulo/rede/setorPatrimonio/manter.jsp</result>
+                 <result name="erro">/pages/modulo/rede/setorPatrimonio/pesquisar.jsp</result>
+	    </action>
+	    
+	    <!-- Dados Tipo Diária -->
+	    
+	    
+	    <action name="pesquisarTipoDiaria" class="com.mozart.web.actions.rede.TipoDiariaAction" >
+                 <result name="sucesso">/pages/modulo/rede/tipoDiaria/pesquisar.jsp</result>
+	    </action>
+        <action name="manterTipoDiaria" class="com.mozart.web.actions.rede.TipoDiariaAction" >
+                 <result name="sucesso">/pages/modulo/rede/tipoDiaria/manter.jsp</result>
+                 <result name="erro">/pages/modulo/rede/tipoDiaria/pesquisar.jsp</result>
+	    </action>
+		
+		<!-- Dados Histórico Contabil -->
+
+	  
+	    <action name="pesquisarHistoricoContabil" class="com.mozart.web.actions.rede.HistoricoContabilAction" >
+                 <result name="sucesso">/pages/modulo/rede/historicoContabil/pesquisar.jsp</result>
+	    </action>
+        <action name="manterHistoricoContabil" class="com.mozart.web.actions.rede.HistoricoContabilAction" >
+                 <result name="sucesso">/pages/modulo/rede/historicoContabil/manter.jsp</result>
+                 <result name="erro">/pages/modulo/rede/historicoContabil/pesquisar.jsp</result>
+	    </action>
+
+		<!-- Dados Departamento -->
+
+	  
+	    <action name="pesquisarDepartamento" class="com.mozart.web.actions.rede.DepartamentoAction" >
+                 <result name="sucesso">/pages/modulo/rede/departamento/pesquisar.jsp</result>
+	    </action>
+        <action name="manterDepartamento" class="com.mozart.web.actions.rede.DepartamentoAction" >
+                 <result name="sucesso">/pages/modulo/rede/departamento/manter.jsp</result>
+                 <result name="erro">/pages/modulo/rede/departamento/pesquisar.jsp</result>
+	    </action>
+
+		<!-- Dados Índice Correção Monetária -->
+
+	  
+	    <action name="pesquisarIndiceEconomico" class="com.mozart.web.actions.rede.IndiceEconomicoAction" >
+                 <result name="sucesso">/pages/modulo/rede/indiceEconomico/pesquisar.jsp</result>
+	    </action>
+        <action name="manterIndiceEconomico" class="com.mozart.web.actions.rede.IndiceEconomicoAction" >
+                 <result name="sucesso">/pages/modulo/rede/indiceEconomico/manter.jsp</result>
+                 <result name="erro">/pages/modulo/rede/indiceEconomico/pesquisar.jsp</result>
+	    </action>
+
+		<!-- Dados Plano de Contas-->
+
+	  
+	    <action name="pesquisarPlanoConta" class="com.mozart.web.actions.rede.PlanoContaAction" >
+                 <result name="sucesso">/pages/modulo/rede/planoConta/pesquisar.jsp</result>
+	    </action>
+        <action name="manterPlanoConta" class="com.mozart.web.actions.rede.PlanoContaAction" >
+                 <result name="sucesso">/pages/modulo/rede/planoConta/manter.jsp</result>
+                 <result name="erro">/pages/modulo/rede/planoConta/pesquisar.jsp</result>
+	    </action>
+	    
+	  	<!-- Dados Centro Custo-->
+	    
+	    
+	    <action name="pesquisarCentroCusto" class="com.mozart.web.actions.rede.CentroCustoAction" >
+                 <result name="sucesso">/pages/modulo/rede/centroCusto/pesquisar.jsp</result>
+	    </action>
+        <action name="manterCentroCusto" class="com.mozart.web.actions.rede.CentroCustoAction" >
+                 <result name="sucesso">/pages/modulo/rede/centroCusto/manter.jsp</result>
+                 <result name="erro">/pages/modulo/rede/centroCusto/pesquisar.jsp</result>
+	    </action>
+	    
+	     <!-- Administrador de Canais / GDS -->
+	    <action name="pesquisarGDS" class="com.mozart.web.actions.rede.AdministradorCanaisAction" >
+                 
+                 <result name="sucesso">/pages/modulo/rede/administradorCanais/pesquisar.jsp</result>
+                 
+	    </action>
+
+	    <action name="manterGDS" 	class="com.mozart.web.actions.rede.AdministradorCanaisAction" >
+                 
+                 <result name="sucesso">/pages/modulo/rede/administradorCanais/manter.jsp</result>
+                 
+	    </action>
+	    
+	    <action name="TransferenciaHospede" class="com.mozart.web.actions.rede.TransferenciaHospedeAction" >
+               <result name="sucesso">/pages/modulo/rede/hospede/transferencia.jsp</result>
+	    </action>
+	  							
+	</package>
+</struts>

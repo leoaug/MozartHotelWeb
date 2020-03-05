@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+    <package name="reserva" extends="struts-default"  namespace="/app/reserva">
+    
+    
+    	<action name="enviarEmail" class="com.mozart.web.actions.ReservaAction" >
+                        <result name="sucesso">/pages/modulo/reserva/enviarReservaPorEmail.jsp</result>
+                        <result name="pesquisa">/pages/modulo/reserva/pesquisa.jsp</result>                                                
+	    </action>
+    
+    
+	    <action name="manter" class="com.mozart.web.actions.ReservaAction" >
+                        <result name="sucesso">/pages/modulo/reserva/manterReserva.jsp</result>
+                        <result name="prepara">/pages/modulo/reserva/manterReserva.jsp</result>                        
+                        <result name="pesquisa">/pages/modulo/reserva/pesquisa.jsp</result>
+                        <result name="sucesso_email">/pages/modulo/reserva/enviarReservaPorEmail.jsp</result>
+	    </action>
+            
+            <action name="include" class="com.mozart.web.actions.ReservaAction" >
+                        <result name="sucessoResApto">/pages/modulo/reserva/include/manterReservaApto.jsp</result>
+                        <result name="sucessoResPgto">/pages/modulo/reserva/include/manterReservaPgto.jsp</result>
+                        <result name="sucessoHospede">/pages/modulo/reserva/include/manterReservaHospede.jsp</result>
+                        <result name="sucessoResRoomList">/pages/modulo/reserva/include/manterReservaRoomList.jsp</result>
+                        <result name="sucessoOcupacaoDisponibilidade">/pages/modulo/grafico/popup/ocupacaoPopup.jsp</result>                        
+                        <result name="sucessoDiarias">/pages/modulo/reserva/include/manterDiarias.jsp</result>
+                        <result name="sucessoCabecalhoGestaoBloqueio">/pages/modulo/reserva/include/cabecalhoGestaoBloqueio.jsp</result>
+                        <result name="sucessoTarifasGestaoBloqueio">/pages/modulo/reserva/include/tarifasGestaoBloqueio.jsp</result>
+                        <result name="sucessoQtdeGestaoBloqueio">/pages/modulo/reserva/include/qtdeGestaoBloqueio.jsp</result>
+	    </action>
+            
+        <action name="pesquisar" class="com.mozart.web.actions.ReservaAction" >
+                        <result name="sucesso">/pages/modulo/reserva/pesquisa.jsp</result>
+                        <result name="prepara">/pages/modulo/reserva/pesquisa.jsp</result>
+	    </action>
+
+        <action name="manterMapa" class="com.mozart.web.actions.ReservaAction" >
+                        <result name="sucesso">/pages/modulo/reserva/mapaDisponibilidade.jsp</result>
+	    </action>
+        
+        <action name="relatorio" class="com.mozart.web.actions.ReservaAction" >
+                        <result name="sucesso">/pages/modulo/reserva/relatorio.jsp</result>
+                        <result name="gestaoBloqueio">/pages/modulo/reserva/gestaoBloqueio.jsp</result>
+	    </action>
+	        
+    </package>
+    
+</struts>

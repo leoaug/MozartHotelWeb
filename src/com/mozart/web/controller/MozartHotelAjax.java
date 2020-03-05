@@ -5841,10 +5841,11 @@ public class MozartHotelAjax extends HttpServlet {
 			builder.append("	<div class=\"divLinhaCadastro\"> ");
 			builder.append("		<div class=\"divItemGrupo\" style=\"width:500px;\" > ");
 			builder.append("			<p style=\"width:150px;\">Tipo Lançamento receita </p>" );
-			builder.append("				<select name=\"tipoLancamentoReceita.idTipoLancamento\" style=\"width:300px\">");
+			builder.append("				<select name=\"apiContrato.idTipoLancamento\" style=\"width:300px\">");
 			builder.append("					<option value=\"0\" >Selecione</option>");
 			for(TipoLancamentoVO voReceita : listaReceita) {
-				builder.append("				<option value="+voReceita.getIdTipoLancamento() +">"+ voReceita.getDescricaoLancamento() +"</option>");
+				String idTipoLancamento = "\"" + voReceita.getIdTipoLancamento() + "\"";
+				builder.append("				<option value="+idTipoLancamento +">"+ voReceita.getDescricaoLancamento() +"</option>");
 			}
 			builder.append("                </select>");
 			builder.append("		</div>");
@@ -5853,10 +5854,11 @@ public class MozartHotelAjax extends HttpServlet {
 			builder.append("   <div class=\"divLinhaCadastro\">");			
 			builder.append("	   <div class=\"divItemGrupo\" style=\"width:500px;\" >");  
 			builder.append("			<p style=\"width:150px;\">Tipo Lançamento recebimento </p>" );
-			builder.append("				<select name=\"tipoLancamentoRecebimento.idTipoLancamento\" style=\"width:300px\">");
+			builder.append("				<select name=\"apiContrato.idTipoLancamentoCk\" style=\"width:300px\">");
 			builder.append("					<option value=\"0\" >Selecione</option>");
 			for(TipoLancamentoVO voRecebimento : listaRecebimento) {
-				builder.append("				<option value="+ voRecebimento.getIdTipoLancamento()+">"+voRecebimento.getDescricaoLancamento()+"</option>");
+				String idTipoRecebimento = "\"" + voRecebimento.getIdTipoLancamento() + "\"";
+				builder.append("				<option value="+ idTipoRecebimento+">"+voRecebimento.getDescricaoLancamento()+"</option>");
 			}
 			builder.append("                </select>");
 			builder.append("		</div>");

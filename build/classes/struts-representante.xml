@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+ <package name="representante" extends="struts-default" namespace="/app/representante" >
+		
+		<action name="pesquisarRepresentanteRede" class="com.mozart.web.actions.operacional.RepresentanteAction" >
+                 <result name="sucesso">/pages/modulo/operacional/representante/pesquisar.jsp</result>
+                 <result name="erro">/pages/modulo/operacional/representante/pesquisar.jsp</result>
+	    </action>
+	 	 <action name="manterRepresentante" class="com.mozart.web.actions.operacional.RepresentanteAction" >
+                 <result name="sucesso">/pages/modulo/operacional/representante/manter.jsp</result>
+                 <result name="erro">/pages/modulo/operacional/representante/pesquisar.jsp</result>
+	    </action>
+		
+    </package>
+</struts>

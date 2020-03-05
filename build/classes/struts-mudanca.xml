@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+ <package name="mudanca" extends="struts-default" namespace="/app/mudanca" >
+	
+		<!-- Solicitacao de mudanca -->
+	    <action name="pesquisarMudanca" method="prepararPesquisa" class="com.mozart.web.actions.mudanca.MudancaAction" >
+                 <result name="sucesso">/pages/modulo/mudanca/pesquisar.jsp</result>
+	    </action>
+
+	    <action name="manterMudanca" method="prepararInclusao" class="com.mozart.web.actions.mudanca.MudancaAction" >
+                 <result name="sucesso">/pages/modulo/mudanca/manter.jsp</result>
+	    </action>
+        
+</package>
+</struts>

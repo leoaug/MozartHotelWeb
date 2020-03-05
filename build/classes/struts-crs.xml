@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+ <package name="crs" extends="struts-default" namespace="/app/crs" >
+	
+		<!-- Dados do credito empresa -->
+	    <action name="pesquisarCRS" class="com.mozart.web.actions.crs.CRSAction" method="prepararPesquisa" >
+                 <result name="sucesso">/pages/modulo/crs/manter.jsp</result>
+	    </action>
+
+
+		<!-- Disponibilidade -->
+	    <action name="popup" class="com.mozart.web.actions.crs.DisponibilidadeAction" method="prepararDisponibilidade" >
+                 <result name="sucesso">/pages/modulo/crs/popup/disponibilidade.jsp</result>
+	    </action>
+	    
+    </package>
+</struts>

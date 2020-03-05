@@ -216,7 +216,7 @@
 	                    		<p style="width:150px;">Tipo Lançamento receita:</p>
 	                    		<s:select list="#session.listaReceita" headerKey="0" headerValue="Selecione"
 									  cssStyle="width:300px"  
-									  name="tipoLancamentoReceita.idTipoLancamento"
+									  name="apiContrato.idTipoLancamento"
 									  listKey="idTipoLancamento"
 									  listValue="descricaoLancamento" /> 
 	                    	</div>
@@ -228,8 +228,8 @@
 		                    	<p style="width:150px;">Tipo Lançamento recebimento </p>
 		                    	<s:select list="#session.listaRecebimento" headerKey="0" headerValue="Selecione"
 										  cssStyle="width:300px"  
-										  name="tipoLancamentoRecebimento.idTipoLancamento"
-										  listKey="idTipoLancamento"
+										  name="apiContrato.idTipoLancamentoCk"
+										  listKey="idTipoLancamentoCk"
 										  listValue="descricaoLancamento" /> 
 								
 		                    	

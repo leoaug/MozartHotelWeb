@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+ <package name="auditoria" extends="struts-default" namespace="/app/auditoria" >
+	
+		<!-- Dados da Auditoria-->
+	
+	    <action name="pesquisarAuditoria" class="com.mozart.web.actions.auditoria.AuditoriaAction" >
+                 
+                 <result name="sucesso">/pages/modulo/auditoria/pesquisar.jsp</result>
+                 
+	    </action>
+        
+        <action name="manterAuditoria" class="com.mozart.web.actions.auditoria.AuditoriaAction" >
+                 
+                 <result name="sucesso">/pages/modulo/auditoria/manter.jsp</result>
+                 <result name="erro">/pages/modulo/auditoria/pesquisar.jsp</result>
+                 
+	    </action>
+	    
+	    <action name="encerrarAuditoria" class="com.mozart.web.actions.auditoria.AuditoriaAction" >
+                 
+                 <result name="sucesso">/pages/modulo/auditoria/encerrar.jsp</result>
+                 <result name="encerraServ">/pages/modulo/auditoria/encerrarServ.jsp</result>
+                 <result name="encerraSucesso" type="redirectAction">
+                 	<param name="namespace">/app</param>
+                 	<param name="actionName">main!preparar.action</param>
+                 </result>
+                 <result name="erro">/pages/modulo/auditoria/pesquisar.jsp</result>
+                 
+	    </action>
+	    
+
+        <action name="relatorioAuditoria" class="com.mozart.web.actions.auditoria.AuditoriaAction" >
+                 
+                 <result name="sucesso">/pages/modulo/auditoria/relatorio.jsp</result>
+                 <result name="erro">/pages/modulo/auditoria/pesquisar.jsp</result>
+                 
+	    </action>
+	    
+	    <!-- Reabertura de conta-->
+	    <action name="reabrirConta" class="com.mozart.web.actions.auditoria.AuditoriaAction" >
+                 <result name="sucesso">/pages/modulo/auditoria/reaberturaConta.jsp</result>
+	    </action>
+	    
+	    
+	    
+	    
+
+    </package>
+</struts>
