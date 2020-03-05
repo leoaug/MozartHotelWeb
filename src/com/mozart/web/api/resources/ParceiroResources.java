@@ -47,7 +47,7 @@ public class ParceiroResources {
 			PromotorEJB promotorEJB = new PromotorEJB();
 			promotorEJB.setIdHotel(promotor.getIdUnidade());
 			promotorEJB.setIdRedeHotel(promotor.getIdRede());
-			promotorEJB.setTipoPromotor("V");
+			//promotorEJB.setTipoPromotor("V");
 			promotorEJB.setComissao(promotor.getComissao().doubleValue());
 			promotorEJB.setPromotor(promotor.getPromotor().getNome());
 			promotorEJB.setAtivo("N");

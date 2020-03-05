@@ -16,6 +16,7 @@ import com.mozart.model.exception.MozartValidateException;
 import com.mozart.model.util.Criptografia;
 import com.mozart.model.util.MozartUtil;
 import com.mozart.model.vo.ApiGeralVO;
+import com.mozart.model.vo.EmpresaVO;
 import com.mozart.model.vo.HotelVO;
 import com.mozart.model.vo.TipoLancamentoVO;
 import com.mozart.web.actions.BaseAction;
@@ -48,6 +49,9 @@ public class ApiGeralAction extends BaseAction{
 	
 	private Long indice;
 
+	
+	private String razaoSocial;
+	private Long idEmpresa;
 
 	
 	public ApiGeralAction() throws MozartSessionException{
@@ -78,6 +82,17 @@ public class ApiGeralAction extends BaseAction{
 		try{
 			info("Iniciando a alteracao");
 	
+			 int index = entidade.getEmpresa().getRazaoSocialCGC().indexOf("-");
+			
+			String CGC = entidade.getEmpresa().getRazaoSocialCGC().substring(0, index);
+			String razaoSocial = entidade.getEmpresa().getRazaoSocialCGC().substring(index + 1, entidade.getEmpresa().getRazaoSocialCGC().length());
+			
+			EmpresaVO vo = new EmpresaVO();
+			vo.setCnpj(CGC.trim());
+			vo.setRazaoSocial(razaoSocial.trim());
+			entidade.setNome("API_GERAL");
+			entidade.setAtivo("S");
+			entidade.setEmpresa(EmpresaDelegate.instance().obterEmpresaPorNomeCnpj(vo));			
 			entidade.setUsuario( getUserSession().getUsuarioEJB() );
 			entidade = ApiGeralDelegate.instance().gravarApiGeral( entidade );
 			addMensagemSucesso( MSG_SUCESSO );
@@ -351,6 +366,18 @@ public class ApiGeralAction extends BaseAction{
 	}
 	public void setListaEmpresas(List<EmpresaEJB> listaEmpresas) {
 		this.listaEmpresas = listaEmpresas;
+	}
+	public String getRazaoSocial() {
+		return razaoSocial;
+	}
+	public void setRazaoSocial(String razaoSocial) {
+		this.razaoSocial = razaoSocial;
+	}
+	public Long getIdEmpresa() {
+		return idEmpresa;
+	}
+	public void setIdEmpresa(Long idEmpresa) {
+		this.idEmpresa = idEmpresa;
 	}
 	
 

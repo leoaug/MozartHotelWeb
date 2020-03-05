@@ -12,6 +12,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,6 +22,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.mozart.crypto.MozartCryptoReport;
 import com.mozart.model.delegate.AuditoriaDelegate;
 import com.mozart.model.delegate.CaixaGeralDelegate;
@@ -5879,11 +5883,15 @@ public class MozartHotelAjax extends HttpServlet {
 			HotelEJB hotel = (HotelEJB) request.getSession().getAttribute(
 					"HOTEL_SESSION");
 		
+			//response.setContentType("application/json");
+			//response.setCharacterEncoding("iso-8859-1");
+			
 			PrintWriter out = response.getWriter();
 			
-			//String nomeEmpresaOuCnpj = request.getParameter("OBJ_VALUE");
+			//parametro do autocomplete do jquery (padrão da arquitetura)
 			String nomeEmpresaOuCnpj = request.getParameter("q");
 
+			//ObjectMapper mapper = new ObjectMapper();
 			
 			if(nomeEmpresaOuCnpj != null && !nomeEmpresaOuCnpj.equals("") && nomeEmpresaOuCnpj.toCharArray().length > 3) {
 
@@ -5892,8 +5900,17 @@ public class MozartHotelAjax extends HttpServlet {
 
 				List <EmpresaEJB> lista = EmpresaDelegate.instance().consultarEmpresaPorRazaoSocialLike(filtro);
 
+				//List <String> listaJson = new ArrayList<String>();
+				
 				for(EmpresaEJB ejb : lista) {
+					
+					/*
+					ObjectNode objectNode1 = mapper.createObjectNode();
+			        objectNode1.put("idEmpresa", ejb.getIdEmpresa());
+			        objectNode1.put("razaoSocialCGC", ejb.getRazaoSocialCGC());
+					 */
 					out.println(ejb.getRazaoSocialCGC());
+			        //out.println(objectNode1);
 				}
 
 			}
