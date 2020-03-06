@@ -5,16 +5,15 @@ import java.util.ArrayList;
 
 import com.mozart.model.delegate.ApiContratoDelegate;
 import com.mozart.model.delegate.ApiGeralDelegate;
+import com.mozart.model.delegate.ApiVendedorDelegate;
 import com.mozart.model.delegate.EmpresaDelegate;
 import com.mozart.model.delegate.HotelDelegate;
-import com.mozart.model.delegate.TipoLancamentolDelegate;
 import com.mozart.model.ejb.entity.ApiContratoEJB;
 import com.mozart.model.ejb.entity.ApiGeralEJB;
 import com.mozart.model.ejb.entity.ApiVendedorEJB;
 import com.mozart.model.ejb.entity.EmpresaEJB;
 import com.mozart.model.exception.MozartSessionException;
 import com.mozart.model.exception.MozartValidateException;
-import com.mozart.model.util.Criptografia;
 import com.mozart.model.util.MozartUtil;
 import com.mozart.model.vo.ApiGeralVO;
 import com.mozart.model.vo.EmpresaVO;
@@ -115,6 +114,8 @@ public class ApiGeralAction extends BaseAction{
 				
 				apiVendedor.setApiGeral(entidade);
 				apiVendedor.setNome("VENDEDOR");
+				apiVendedor.setUsuario( getUserSession().getUsuarioEJB() );
+				ApiVendedorDelegate.instance().gravarApiVendedor(apiVendedor);
 			}
 			
 			
@@ -211,50 +212,7 @@ public class ApiGeralAction extends BaseAction{
 	private void initCombos() throws MozartSessionException {
 
 	
-		/*
-		GrupoEconomicoEJB filtroGE = new GrupoEconomicoEJB();
-		filtroGE.setIdHotel( getIdHoteis()[0] );
-		filtroGE.setIdRedeHotel( getHotelCorrente().getRedeHotelEJB().getIdRedeHotel() );
-		List<GrupoEconomicoEJB> grupoEconomicoList = EmpresaDelegate.instance().obterGrupoEconomico( filtroGE );
-		request.getSession().setAttribute("grupoEconomicoList", grupoEconomicoList);
-		
-		TipoEmpresaEJB filtroTE = new TipoEmpresaEJB();
-		filtroTE.setIdHotel(getIdHoteis()[0]);
-		filtroTE.setIdRedeHotel( getHotelCorrente().getRedeHotelEJB().getIdRedeHotel() );
-		List<TipoEmpresaEJB> tipoEmpresaList = EmpresaDelegate.instance().obterTipoEmpresa( filtroTE );
-		request.getSession().setAttribute("tipoEmpresaList", tipoEmpresaList);
-		
-		PromotorEJB filtroP = new PromotorEJB();
-		filtroP.setIdHotel(getIdHoteis()[0]);
-		filtroP.setIdRedeHotel( getHotelCorrente().getRedeHotelEJB().getIdRedeHotel() );
-		List<PromotorEJB> promotorList = EmpresaDelegate.instance().obterPromotor( filtroP );
-		request.getSession().setAttribute("promotorList", promotorList);
-		
-		VendedorRedeEJB filtroV = new VendedorRedeEJB();
-		filtroV.setIdRedeHotel( getHotelCorrente().getRedeHotelEJB().getIdRedeHotel() );
-		List<VendedorRedeEJB> vendedorList = EmpresaDelegate.instance().obterVendedor( filtroV );
-		request.getSession().setAttribute("vendedorList", vendedorList);
-		
-		RepresentanteRedeEJB filtroR = new RepresentanteRedeEJB();
-		filtroR.setIdRedeHotel( getHotelCorrente().getRedeHotelEJB().getIdRedeHotel() );
-		List<RepresentanteRedeEJB> representanteList = EmpresaDelegate.instance().obterRepresentante( filtroR );
-		request.getSession().setAttribute("representanteList", representanteList);
-		
-		TarifaGrupoEJB filtroGT = new TarifaGrupoEJB();
-		filtroGT.setIdHotel( getIdHoteis()[0] );
-		List<TarifaGrupoEJB> grupoTarifaEJB = EmpresaDelegate.instance().obterTarifaGrupo( filtroGT );
-		request.getSession().setAttribute("grupoTarifaList", grupoTarifaEJB);
-		
-		
-		TarifaEJB filtroT = new TarifaEJB();
-		filtroT.setIdHotel( getIdHoteis()[0] );
-		filtroT.setAtivo("S");
-		filtroT.setTipo("A");
-		List<TarifaEJB> tarifaEJBList = EmpresaDelegate.instance().obterTarifa( filtroT );
-		request.getSession().setAttribute("tarifaList", tarifaEJBList);
-		
-		
-		*/
+	
 	}
 
 
