@@ -5902,12 +5902,9 @@ public class MozartHotelAjax extends HttpServlet {
 			this.montarComboReceita(builder,listaReceita, (long) -1);
 			
 			
-			builder.append("   <div class=\"divLinhaCadastro\">");			
-			builder.append("	   <div class=\"divItemGrupo\" style=\"width:500px;\" >");  
-			builder.append("			<p style=\"width:150px;\">Tipo Lançamento recebimento </p>" );
+			
 				this.montaComboRecebimento(builder,listaRecebimento, (long) -1);
-			builder.append("		</div>");
-			builder.append("   </div>");  	
+				
 			
 			
 			builder.append("</div>");	
@@ -5929,9 +5926,11 @@ public class MozartHotelAjax extends HttpServlet {
 		if(idTipoLancamentoRecebimento == null) {
 			idTipoLancamentoRecebimento = (long) 0;
 		}
-		
-		builder.append("<select name=\"apiContrato.idTipoLancamentoCk\" id=\"idSelectRecebimento\" onchange=\"selecionarComboRecebimento(this)\" style=\"width:300px\">");
-		builder.append("	   <option value=\"-1\" >Selecione</option>");
+		builder.append("<div class=\"divLinhaCadastro\">");			
+		builder.append("	 <div class=\"divItemGrupo\" style=\"width:600px;\" >");  
+		builder.append("			<p style=\"width:150px;\">Tipo Lançamento recebimento </p>" );
+		builder.append("			<select name=\"apiContrato.idTipoLancamentoCk\" id=\"idSelectRecebimento\" onchange=\"selecionarComboRecebimento(this);loading()\" style=\"width:350px\">");
+		builder.append("	   			<option value=\"-1\" >Selecione</option>");
 		for(TipoLancamentoVO voRecebimento : listaRecebimento) {
 			Long idTipoRecebimento = voRecebimento.getIdTipoLancamento() == null ? 0 : voRecebimento.getIdTipoLancamento() ;
 			
@@ -5944,10 +5943,11 @@ public class MozartHotelAjax extends HttpServlet {
 				selected = " ";
 			}
 			
-			builder.append("	<option value="+ idTipoRecebimentoFormatado + " " +selected +">"+voRecebimento.getDescricaoLancamento()+"</option>");
+			builder.append("			<option value="+ idTipoRecebimentoFormatado + " " +selected +">"+voRecebimento.getDescricaoLancamento()+"</option>");
 		}
-		builder.append("</select>");
-		 
+		builder.append("			</select>");
+		builder.append("	</div>");
+		builder.append("</div>");  
 		
 	}
 
@@ -5955,12 +5955,12 @@ public class MozartHotelAjax extends HttpServlet {
 		
 		String selected = " ";
 		
-		builder.append("	<div id=\"idDivSelectReceita\" class=\"divLinhaCadastro\"> ");
-		builder.append("		<div class=\"divItemGrupo\" style=\"width:500px;\" > ");
-		builder.append("			<p style=\"width:150px;\">Tipo Lançamento receita </p>" );
+		builder.append("<div id=\"idDivSelectReceita\" class=\"divLinhaCadastro\"> ");
+		builder.append("	<div class=\"divItemGrupo\" style=\"width:600px;\" > ");
+		builder.append("		<p style=\"width:150px;\">Tipo Lançamento receita </p>" );
 		
-		builder.append("				<select name=\"apiContrato.idTipoLancamento\" onchange=\"selecionarComboReceita(this)\" id=\"idSelectReceita\" style=\"width:300px\">");
-		builder.append("					<option value=\"-1\" >Selecione</option>");
+		builder.append("		<select name=\"apiContrato.idTipoLancamento\" onchange=\"selecionarComboReceita(this);loading()\" id=\"idSelectReceita\" style=\"width:350px\">");
+		builder.append("			<option value=\"-1\" >Selecione</option>");
 		for(TipoLancamentoVO voReceita : listaReceita) {
 			String idTipoLancamento = "\"" + voReceita.getIdTipoLancamento() + "\"";
 			if(idTipoLancamentoReceita != null && idTipoLancamentoReceita.equals(voReceita.getIdTipoLancamento())) {
@@ -5968,11 +5968,11 @@ public class MozartHotelAjax extends HttpServlet {
 			} else {
 				selected = " ";
 			}
-			builder.append("				<option value="+idTipoLancamento + " " +selected +">"+ voReceita.getDescricaoLancamento() +"</option>");
+			builder.append("		<option value="+idTipoLancamento + " " +selected +">"+ voReceita.getDescricaoLancamento() +"</option>");
 		}
-		builder.append("				</select>");
-		builder.append("	    </div>");
-		builder.append("   </div>");	
+		builder.append("		</select>");
+		builder.append("   </div>");
+		builder.append("</div>");	
 		
 	}
 

@@ -105,6 +105,11 @@ public class ApiGeralAction extends BaseAction{
 				
 				apiContrato.setApiGeral(entidade);
 				apiContrato.setNome("CONTRATO");
+				apiContrato.setAtivo("S");
+				if(apiContrato.getIdTipoLancamentoCk().equals((long)0)) {
+					apiContrato.setIdTipoLancamentoCk(apiContrato.getIdTipoLancamento());
+				}
+				apiContrato.setHotel(HotelDelegate.instance().consultarHotelPorId(apiContrato.getHotel().getIdHotel()));
 				apiContrato.setUsuario( getUserSession().getUsuarioEJB() );
 				ApiContratoDelegate.instance().gravarApiContrato(apiContrato);
 			} 
@@ -114,6 +119,8 @@ public class ApiGeralAction extends BaseAction{
 				
 				apiVendedor.setApiGeral(entidade);
 				apiVendedor.setNome("VENDEDOR");
+				apiVendedor.setAtivo("S");
+				apiVendedor.setHotel(HotelDelegate.instance().consultarHotelPorId(apiVendedor.getHotel().getIdHotel()));
 				apiVendedor.setUsuario( getUserSession().getUsuarioEJB() );
 				ApiVendedorDelegate.instance().gravarApiVendedor(apiVendedor);
 			}

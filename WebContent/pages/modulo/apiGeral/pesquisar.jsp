@@ -62,7 +62,7 @@
     
  <!-- grid -->     
     <duques:grid colecao="listaPesquisa" 
-    			 titulo="RelatÃ³rio de api geral" 
+    			 titulo="Relatório de api geral" 
     			 current="obj" 
     			 idAlteracao="idApiGeral" 
     			 idAlteracaoValue="idApiGeral" 
@@ -70,20 +70,20 @@
     
        <duques:column labelProperty="Nome API"       						propertyValue="nome"            			    style="width:120px;" />
        <duques:column labelProperty="Ativo"       							propertyValue="ativo"            			    style="width:120px;" />
-       <duques:column labelProperty="RazÃ£o Social Site"       				propertyValue="razaoSocialString"            	style="width:120px;" />
+       <duques:column labelProperty="Razão Social Site"       				propertyValue="razaoSocialString"            	style="width:120px;" />
        <duques:column labelProperty="Token"       							propertyValue="token"            				style="width:120px;" />
        <duques:column labelProperty="URL"       							propertyValue="url"            					style="width:120px;" />
-       <duques:column labelProperty="CÃ³d. Registro"       					propertyValue="idApiGeral"            			style="width:120px;" />
+       <duques:column labelProperty="Cód. Registro"       					propertyValue="idApiGeral"            			style="width:120px;" />
 	   <duques:column labelProperty="Nome API"       						propertyValue="apiContratoNome"            		style="width:120px;" />
 	   <duques:column labelProperty="Ativo"       							propertyValue="apiContratoAtivo"            	style="width:120px;" />
 	   <duques:column labelProperty="Nome Fantasia"       					propertyValue="hotelNomeFantasia"            	style="width:120px;" />
-	   <duques:column labelProperty="DescriÃ§Ã£o LanÃ§amento Receita"      	propertyValue="tipoLancamentoDescricao"         style="width:120px;" />
-	   <duques:column labelProperty="DescriÃ§Ã£o LanÃ§amento Recebimento"      propertyValue="tipoLancamentoDescricaoCK"       style="width:120px;" />
-	   <duques:column labelProperty="CÃ³d. Registro"      					propertyValue="idApiContrato"       			style="width:120px;" />
+	   <duques:column labelProperty="Descrição Lançamento Receita"      	propertyValue="tipoLancamentoDescricao"         style="width:120px;" />
+	   <duques:column labelProperty="Descrição Lançamento Recebimento"      propertyValue="tipoLancamentoDescricaoCK"       style="width:120px;" />
+	   <duques:column labelProperty="Cód. Registro"      					propertyValue="idApiContrato"       			style="width:120px;" />
 	   <duques:column labelProperty="Nome da AP"      						propertyValue="apiVendedorNome"       			style="width:120px;" />
 	   <duques:column labelProperty="Ativo"      							propertyValue="apiVendedorAtivo"       			style="width:120px;" />
 	   <duques:column labelProperty="Nome Fantasia"      					propertyValue="hotelNomeFantasiaTL"       		style="width:120px;" />
-	   <duques:column labelProperty="CÃ³d. Registro"      					propertyValue="apiVendedorId"       		    style="width:120px;" />
+	   <duques:column labelProperty="Cód. Registro"      					propertyValue="apiVendedorId"       		    style="width:120px;" />
 		
                 
     </duques:grid>
