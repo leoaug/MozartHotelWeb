@@ -95,8 +95,10 @@ public class ApiGeralAction extends BaseAction{
 			entidade.setAtivo("S");
 			entidade.setEmpresa(EmpresaDelegate.instance().obterEmpresaPorNomeCnpj(vo));			
 			entidade.setUsuario( getUserSession().getUsuarioEJB() );
+			//salvando o API- GERAL
 			entidade = ApiGeralDelegate.instance().gravarApiGeral( entidade );
 			
+			//salvando o API CONTRATO
 			if(entidade.getIdApiGeral() != null && 
 			  apiContrato.getHotel().getIdHotel() != null && 
 			  (apiContrato.getIdTipoLancamento() != null && !apiContrato.getIdTipoLancamento().equals(0)) &&
@@ -104,9 +106,18 @@ public class ApiGeralAction extends BaseAction{
 				
 				apiContrato.setApiGeral(entidade);
 				apiContrato.setNome("CONTRATO");
-				
+				apiContrato.setUsuario( getUserSession().getUsuarioEJB() );
 				ApiContratoDelegate.instance().gravarApiContrato(apiContrato);
 			} 
+			
+			//Salvando o API VENDEDOR
+			if(entidade.getIdApiGeral() != null && apiVendedor.getHotel() != null  && apiVendedor.getHotel().getIdHotel() != null) {
+				
+				apiVendedor.setApiGeral(entidade);
+				apiVendedor.setNome("VENDEDOR");
+			}
+			
+			
 			addMensagemSucesso( MSG_SUCESSO );
 			return PESQUISA_FORWARD;
 			

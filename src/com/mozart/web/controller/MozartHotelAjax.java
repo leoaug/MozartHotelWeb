@@ -5899,13 +5899,13 @@ public class MozartHotelAjax extends HttpServlet {
 			builder.append("<div id=\"idDivLancamentoReceitaRecebimento\" style=\"height:200px;\">");
 			
 			
-			this.montarComboReceita(builder,listaReceita, null);
+			this.montarComboReceita(builder,listaReceita, (long) -1);
 			
 			
 			builder.append("   <div class=\"divLinhaCadastro\">");			
 			builder.append("	   <div class=\"divItemGrupo\" style=\"width:500px;\" >");  
 			builder.append("			<p style=\"width:150px;\">Tipo Lançamento recebimento </p>" );
-				this.montaComboRecebimento(builder,listaRecebimento, null);
+				this.montaComboRecebimento(builder,listaRecebimento, (long) -1);
 			builder.append("		</div>");
 			builder.append("   </div>");  	
 			
