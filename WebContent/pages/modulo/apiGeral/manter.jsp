@@ -41,7 +41,7 @@
 				
 			},
 			error : function(retorno) {
-				alert("Erro ao gerar token!!");
+				//alert("Erro ao gerar token!!");
 			}
 		});
 
@@ -61,7 +61,7 @@
 				
 			},
 			error : function(retorno) {
-				alert("Erro ao gerar token!!");
+				//alert("Erro ao gerar token!!");
 			}
 		});
 		
@@ -78,7 +78,7 @@
 				
 			},
 			error : function(retorno) {
-				alert("Erro ao gerar token!!");
+				//alert("Erro ao gerar token!!");
 			}
 		});
 	}

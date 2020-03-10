@@ -5990,7 +5990,7 @@ public class MozartHotelAjax extends HttpServlet {
 
 			//ObjectMapper mapper = new ObjectMapper();
 			
-			if(nomeEmpresaOuCnpj != null && !nomeEmpresaOuCnpj.equals("") && nomeEmpresaOuCnpj.toCharArray().length > 3) {
+			if(nomeEmpresaOuCnpj != null && !nomeEmpresaOuCnpj.equals("") && nomeEmpresaOuCnpj.toCharArray().length >= 3) {
 
 				EmpresaEJB filtro = new EmpresaEJB();
 				filtro.setRazaoSocial(nomeEmpresaOuCnpj);

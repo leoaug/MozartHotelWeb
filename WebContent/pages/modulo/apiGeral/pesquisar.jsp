@@ -30,8 +30,8 @@
         submitForm(document.forms[0]);
     }
 
-	currentMenu = "apto";
-	with(milonic=new menuname("apto")){
+	currentMenu = "sistema";
+	with(milonic=new menuname("sistema")){
 	margin=3;
 	style=contextStyle;
 	top="offset=2";
@@ -72,16 +72,16 @@
     			 urlRetorno="pages/modulo/apiGeral/pesquisar.jsp">
     
        <duques:column labelProperty="Nome API"       						propertyValue="nome"            			    style="width:120px;" />
-       <duques:column labelProperty="Ativo"       							propertyValue="ativo"            			    style="width:120px;" />
-       <duques:column labelProperty="Razão Social Site"       				propertyValue="razaoSocialString"            	style="width:120px;" />
-       <duques:column labelProperty="Token"       							propertyValue="token"            				style="width:120px;" />
+       <duques:column labelProperty="Ativo"       							propertyValue="ativo"            			    style="width:50px;" />
+       <duques:column labelProperty="Razão Social Site"       				propertyValue="razaoSocialString"            	style="width:240px;" />
+       <duques:column labelProperty="Token"       							propertyValue="token"            				style="width:240px;" />
        <duques:column labelProperty="URL"       							propertyValue="url"            					style="width:120px;" />
        <duques:column labelProperty="Cód. Registro"       					propertyValue="idApiGeral"            			style="width:120px;" />
 	   <duques:column labelProperty="Nome API"       						propertyValue="apiContratoNome"            		style="width:120px;" />
 	   <duques:column labelProperty="Ativo"       							propertyValue="apiContratoAtivo"            	style="width:120px;" />
 	   <duques:column labelProperty="Nome Fantasia"       					propertyValue="hotelNomeFantasia"            	style="width:120px;" />
-	   <duques:column labelProperty="Descrição Lançamento Receita"      	propertyValue="tipoLancamentoDescricao"         style="width:120px;" />
-	   <duques:column labelProperty="Descrição Lançamento Recebimento"      propertyValue="tipoLancamentoDescricaoCK"       style="width:120px;" />
+	   <duques:column labelProperty="Descrição Lançamento Receita"      	propertyValue="tipoLancamentoDescricao"         style="width:240px;" />
+	   <duques:column labelProperty="Descrição Lançamento Recebimento"      propertyValue="tipoLancamentoDescricaoCK"       style="width:240px;" />
 	   <duques:column labelProperty="Cód. Registro"      					propertyValue="idApiContrato"       			style="width:120px;" />
 	   <duques:column labelProperty="Nome da AP"      						propertyValue="apiVendedorNome"       			style="width:120px;" />
 	   <duques:column labelProperty="Ativo"      							propertyValue="apiVendedorAtivo"       			style="width:120px;" />
