@@ -4,6 +4,9 @@
 
 <script>
 
+	function init(){
+	    
+	}
 
     function prepararInclusao(){
 		vForm = document.forms[0];
