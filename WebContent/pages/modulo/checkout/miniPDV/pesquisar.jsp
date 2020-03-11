@@ -10,7 +10,7 @@
     function relatorio() {        
         document.forms[0].action = '<s:url action="relatorio!prepararRelatorio.action" namespace="/app/caixa" />'        
         submitForm(document.forms[0]);
- 	}
+ 	} 
     
     function prepararInclusao(){
 		vForm = document.forms[0];

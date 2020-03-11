@@ -95,7 +95,7 @@ import com.mozart.model.vo.ApartamentoVO;
 import com.mozart.model.vo.BancoVO;
 import com.mozart.model.vo.BloqueioGestaoVO;
 import com.mozart.model.vo.CaixaGeralVO;
-import com.mozart.model.vo.CheckinVO;
+import com.mozart.model.vo.CheckinVO; 
 import com.mozart.model.vo.ClassificacaoContabilFaturamentoVO;
 //import com.mozart.model.vo.ClassificacaoContabilFaturamentoVO;
 import com.mozart.model.vo.ComprovanteAjusteVO;

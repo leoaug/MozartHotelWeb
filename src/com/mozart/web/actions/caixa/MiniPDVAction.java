@@ -318,7 +318,7 @@ public class MiniPDVAction extends BaseAction{
 	
 	public String prepararRelatorio(){
 		return SUCESSO_FORWARD;
-	}
+	} 
 
 		
 	

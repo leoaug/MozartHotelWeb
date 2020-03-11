@@ -5,7 +5,7 @@
 <link rel="stylesheet" type="text/css" href="js/autocomplete/jquery.autocomplete.css" />
 <script src="js/autocomplete/jquery.autocomplete.js" type='text/javascript'></script>
 
-<script type="text/javascript">
+<script type="text/javascript"> 
 
 function cancelar(){
 	vForm = document.forms[0];
