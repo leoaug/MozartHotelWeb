@@ -142,6 +142,10 @@ public class PDVMovimentacaoAction extends BaseAction {
 
 		return SUCESSO_FORWARD;
 	}
+	
+	public String prepararRelatorio(){
+		return SUCESSO_FORWARD;
+	}
 
 	public String prepararPagamento() throws MozartSessionException {
 		request.getSession().removeAttribute("listaPesquisa");

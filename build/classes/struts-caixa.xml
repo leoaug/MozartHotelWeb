@@ -57,6 +57,12 @@
 			<result name="sucesso">/pages/modulo/checkout/transacoesWeb/pesquisar.jsp</result>
 		</action>
 		
+		 <action name="relatorio" class="com.mozart.web.actions.pdv.PDVMovimentacaoAction" >
+                 
+                 <result name="sucesso">/pages/modulo/checkout/miniPDV/relatorio.jsp</result>
+                 
+	    </action>
+		
 	</package>
 
 </struts>

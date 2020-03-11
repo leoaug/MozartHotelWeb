@@ -95,6 +95,7 @@ import com.mozart.model.vo.ApartamentoVO;
 import com.mozart.model.vo.BancoVO;
 import com.mozart.model.vo.BloqueioGestaoVO;
 import com.mozart.model.vo.CaixaGeralVO;
+import com.mozart.model.vo.CheckinVO;
 import com.mozart.model.vo.ClassificacaoContabilFaturamentoVO;
 //import com.mozart.model.vo.ClassificacaoContabilFaturamentoVO;
 import com.mozart.model.vo.ComprovanteAjusteVO;
@@ -6019,6 +6020,46 @@ public class MozartHotelAjax extends HttpServlet {
 		}
 	}
 	
+	
+	public void pesquisarChekinPorApartamentoOuHospedeLike(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException,
+			MozartSessionException {
+		try {
+		
+			//parametro do autocomplete do jquery (padrão da arquitetura)
+			String apartamentoOuHospede = request.getParameter("q");
+			
+			if(apartamentoOuHospede != null && !apartamentoOuHospede.equals("") && apartamentoOuHospede.toCharArray().length >= 3) {
+
+				HotelEJB hotel = (HotelEJB) request.getSession().getAttribute(
+						"HOTEL_SESSION");
+				
+				
+				PrintWriter out = response.getWriter();
+				
+				CheckinVO vo = new CheckinVO();
+
+				vo.setNomeHospede(apartamentoOuHospede);
+
+				Long[] idHoteis = new Long[1];			
+				idHoteis[0] = hotel.getIdHotel();
+
+				vo.setIdHoteis(idHoteis);
+
+				List <CheckinVO> lista = CheckinDelegate.instance().pesquisarChekinPorApartamentoOuHospedeLike(vo);
+
+				for(CheckinVO checkinVO : lista) {
+					out.println(checkinVO.getIdCheckin() + " - " + checkinVO.getNomeHospede());
+				}
+
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			MozartWebUtil.error(MozartWebUtil.getLogin(request),
+					e.getMessage(), this.log);
+		}
+	}
 	// public void selecionarListaFiscalServico(HttpServletRequest request,
 	// HttpServletResponse response) throws ServletException, IOException {
 	// MozartWebUtil.info(MozartWebUtil.getLogin(request),
