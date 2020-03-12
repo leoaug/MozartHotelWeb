@@ -21,7 +21,7 @@
                  <result name="pesquisa" type="redirectAction">
                  	<param name="namespace">/app</param>
                  	<param name="actionName">main!preparar.action</param>
-                 </result>
+                 </result> 
 	    </action>
 
         <action name="relatorio" class="com.mozart.web.actions.empresa.EmpresaAction" >
