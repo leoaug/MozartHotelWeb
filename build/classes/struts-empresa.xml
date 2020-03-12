@@ -17,7 +17,7 @@
         
         <action name="manterEmpresa" class="com.mozart.web.actions.empresa.EmpresaAction" >
                  
-                 <result name="sucesso">/pages/modulo/empresa/manter.jsp</result>
+                 <result name="sucesso">/pages/modulo/empresa/pesquisar.jsp</result>
                  <result name="pesquisa" type="redirectAction">
                  	<param name="namespace">/app</param>
                  	<param name="actionName">main!preparar.action</param>

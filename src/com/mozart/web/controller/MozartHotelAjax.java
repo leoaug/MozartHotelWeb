@@ -6048,9 +6048,15 @@ public class MozartHotelAjax extends HttpServlet {
 
 				List <CheckinVO> lista = CheckinDelegate.instance().pesquisarChekinPorApartamentoOuHospedeLike(vo);
 
-				for(CheckinVO checkinVO : lista) {
-					out.println(checkinVO.getIdCheckin() + " - " + checkinVO.getNomeHospede());
+				if(lista.isEmpty()) {
+					out.println("Nenhum resultado encontrado");
+				} else {
+					for(CheckinVO checkinVO : lista) {
+						out.println(checkinVO.getIdCheckin() + " - " + checkinVO.getNomeHospede());
+					}
 				}
+				
+				
 
 			}
 			

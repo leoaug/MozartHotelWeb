@@ -144,7 +144,13 @@ public class UsuarioAction extends BaseAction {
 
 			return preparar();
 		} catch (Exception ex) {
-			addMensagemErro("Erro ao realizar operação.");
+            if(ex.getMessage().contains("restrição exclusiva (MOZART.IDX_USER_NICK) violada")) {
+            	addMensagemErro("Nome do Usuário já cadastrado, cadastre com outro Login." );
+            } else {
+            	addMensagemErro("Erro ao realizar operação.");
+            }
+            
+			
 			error(ex.getMessage());
 		}
 		return "sucesso";

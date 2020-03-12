@@ -9,7 +9,7 @@
 
 function cancelar(){
 	vForm = document.forms[0];
-	vForm.action = '<s:url action="pesquisar!prepararPesquisa.action" namespace="/app/caixa" />';
+	vForm.action = '<s:url action="pesquisarMiniPDV!prepararPesquisa.action" namespace="/app/caixa" />';
 	submitForm(vForm);
 }
 
@@ -24,6 +24,12 @@ var subReportDir = '';
 var idHotel = '';
 function imprimir(){
 
+
+	if ( $("input[name='checkin']").val() == '') {
+		alerta('Campo "Hóspede" é obrigatório.');
+		return false;
+	}
+	
 	var idRel = $("input[name='TIPO']").val();
 	var checkin = $("input[name='checkin']").val();
 	reportAddress = '<s:property value="#session.URL_REPORT"/>';
@@ -45,10 +51,7 @@ function imprimir(){
 		params += ';SUBREPORT_DIR@' + subReportDir;
 		params += ';NOME_HOTEL@<s:property value="#session.NOME_HOTEL_SESSION.nomeFantasia"/>';
 
-		reportAddress += '&PARAMS='+params;
-
-		alert(reportAddress);
-
+		reportAddress += '&PARAMS='+params;	
 		
 		showPopupGrande(reportAddress);
 	}

@@ -7,12 +7,6 @@
 		vForm = document.forms[0];
 		submitForm( vForm );
 	}
-
-	function relatorio() {        
-	        document.forms[0].action = '<s:url action="relatorio!prepararRelatorio.action" namespace="/app/pdv" />'        
-	        submitForm(document.forms[0]);
-	 }
-	
 	function prepararInclusao(){
 		vForm = document.forms[0];
 		vForm.action = '<s:url action="manterMovimentacaoPontoVenda!prepararInclusao.action" namespace="/app/pdv" />';
@@ -39,7 +33,6 @@
         <div id="divBotao" class="divBotao">
             <duques:botao label="Pesquisar" imagem="imagens/iconic/png/magnifying-glass-3x.png" onClick="pesquisar();" />
             <duques:botao label="Novo" imagem="imagens/iconic/png/plus-3x.png" onClick="prepararInclusao();" />
-            <duques:botao label="Relatório" imagem="imagens/iconic/png/print-3x.png" onClick="relatorio();" />
         </div>
     </div>
     

@@ -302,6 +302,8 @@ public class LoginAction extends BaseAction {
 			}
 			
 			this.request.getSession().setAttribute(ID_PROGRAMA_LIST, listIdPrograma);
+			// aonde monta o menu na hora do login
+			sessao.getUsuarioEJB().getPrintMenu(listIdPrograma);
 			info("Usuário logado");
 
 			return "sucesso";

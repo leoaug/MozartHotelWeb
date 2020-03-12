@@ -155,6 +155,9 @@ public class MainAction extends BaseAction{
         
             request.getSession().setAttribute( MozartConstantesWeb.HOTEL_SESSION, hotel);
             request.getSession().setAttribute( MozartConstantesWeb.ID_PROGRAMA_LIST, idProgramaList);
+            // aonde monta o menu na hora do login
+        	sessao.getUsuarioEJB().getPrintMenu(idProgramaList);
+            
             
             HotelEJB hotelRestaurante = PdvDelegate.instance().getHotelPorRestaurante(hotel.getIdHotel());
             

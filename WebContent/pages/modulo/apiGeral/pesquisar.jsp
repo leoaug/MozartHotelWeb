@@ -73,8 +73,8 @@
     
        <duques:column labelProperty="Nome API"       						propertyValue="nome"            			    style="width:120px;" />
        <duques:column labelProperty="Ativo"       							propertyValue="ativo"            			    style="width:50px;" />
-       <duques:column labelProperty="Razão Social Site"       				propertyValue="razaoSocialString"            	style="width:240px;" />
-       <duques:column labelProperty="Token"       							propertyValue="token"            				style="width:240px;" />
+       <duques:column labelProperty="Razão Social Site"       				propertyValue="razaoSocialString"            	style="width:260px;" />
+       <duques:column labelProperty="Token"       							propertyValue="token"            				style="width:260px;" />
        <duques:column labelProperty="URL"       							propertyValue="url"            					style="width:120px;" />
        <duques:column labelProperty="Cód. Registro"       					propertyValue="idApiGeral"            			style="width:120px;" />
 	   <duques:column labelProperty="Nome API"       						propertyValue="apiContratoNome"            		style="width:120px;" />

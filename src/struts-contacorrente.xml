@@ -10,7 +10,10 @@
 		<action name="pesquisar" class="com.mozart.web.actions.ContaCorrenteGeralAction">
 			<result name="abertura">/pages/modulo/contacorrente/abertura/pesquisar.jsp</result>
 			<result name="fechamento">/pages/modulo/contacorrente/fechamento/pesquisar.jsp</result>
-			<result name="lancamento">/pages/modulo/contacorrente/lancamento/pesquisar.jsp</result>
+			<result name="lancamento"  type="redirectAction">
+				<param name="namespace">/app</param>
+				<param name="actionName">main!preparar.action</param>
+			</result>
 			<result name="contrato">/pages/modulo/contacorrente/contrato/manter.jsp</result>
 		</action>
 		
