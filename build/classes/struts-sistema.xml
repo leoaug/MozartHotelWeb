@@ -142,6 +142,35 @@
                 <result name="sucesso">/pages/modulo/tributario/estadual/manterFcp.jsp</result>
 	    </action>
 	    
+	    
+	    <!-- Dados do API- Geral -->
+	
+	    <action name="pesquisarApiGeral" class="com.mozart.web.actions.apiGeral.ApiGeralAction" >
+                 
+                 <result name="sucesso">/pages/modulo/sistema/apiGeral/pesquisar.jsp</result>
+                 
+	    </action>
+        
+        <action name="manterApiGeral" class="com.mozart.web.actions.apiGeral.ApiGeralAction" >
+                 
+                 <result name="sucesso">/pages/modulo/sistema/apiGeral/manter.jsp</result>
+                 <result name="input">/pages/modulo/sistema/apiGeral/manter.jsp</result>
+                   
+                  
+                 <result name="pesquisa" type="redirectAction">
+                 	<param name="namespace">/app</param>
+                 	<param name="actionName">main!preparar.action</param>
+                 </result>
+                  
+	    </action>
+
+        <action name="relatorio" class="com.mozart.web.actions.apiGeral.ApiGeralAction" >
+                 
+                 <result name="sucesso">/pages/modulo/sistema/apiGeral/relatorio.jsp</result>
+                 
+	    </action>
+	  
+	    
 	</package>
 	
 </struts>
